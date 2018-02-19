@@ -32,9 +32,14 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 	private Transform shipAnchor;
 
 	 private float myTime = 0.0F;
-	public float fireDelta = 0.5F;
+	public float fireDelta = 0.2F;
 
-    private float nextFire = 0.5F;
+    private float nextFire = 0.2F;
+
+	private WeaponSystem weaponSystem;
+
+	[SerializeField]
+	private GameObject muzzle;
 
 
 	// Use this for initialization
@@ -48,6 +53,9 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 
 		//Cache Transform
 		_transform = transform;
+
+		//Get Attached Weapon System
+		weaponSystem = muzzle.GetComponent<WeaponSystem>();
 
 	}
 	
@@ -79,6 +87,8 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 	public void Fire()
 	{
 		Debug.Log( "Pew Pew" );
+		weaponSystem.LoadBullet();
+
 	}
 
 	//Change Ship Orientation basd on vertical movement
