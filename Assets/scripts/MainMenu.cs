@@ -14,18 +14,16 @@ public class MainMenu : MonoBehaviour
 
 	void Start()
 	{
+		//Select Player one button as default
 		playerOne.Select();
 	}
 
-	public void TestButton()
+	public void PlayerOne()
 	{
-		Debug.Log( "Player One Button Clicked Ok" );
-
 		StartCoroutine( Blink( playerOne ) );
-		
 	}
 
-	public void TestButton2()
+	public void PlayerTwo()
 	{
 		Debug.Log( "Player Two Button Clicked Ok" );
 
