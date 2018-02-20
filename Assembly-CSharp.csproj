@@ -57,8 +57,10 @@
      <Compile Include="Assets\scripts\GameManager.cs" />
      <Compile Include="Assets\scripts\Interfaces\IDestroyable.cs" />
      <Compile Include="Assets\scripts\Interfaces\IFireable.cs" />
+     <Compile Include="Assets\scripts\MainMenu.cs" />
      <Compile Include="Assets\scripts\Player\PlayerShip.cs" />
      <Compile Include="Assets\scripts\Player\WeaponSystem.cs" />
+     <Compile Include="Assets\scripts\PlayerButton.cs" />
      <Compile Include="Assets\scripts\PoolManager.cs" />
      <Compile Include="Assets\scripts\ShipAnchor.cs" />
      <Compile Include="Assets\scripts\SoundManager.cs" />
