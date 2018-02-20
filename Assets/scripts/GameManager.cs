@@ -1,5 +1,7 @@
 ﻿
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour 
@@ -20,14 +22,7 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
-		Invoke("InitGame", 2);
-	}
-
-
-	void InitGame()
-	{
-		Debug.Log( "Starting Game ...." );
-		SceneManager.LoadScene( "level_1" );
+		
 	}
 	
 }
