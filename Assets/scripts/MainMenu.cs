@@ -12,6 +12,10 @@ public class MainMenu : MonoBehaviour
 	[SerializeField]
 	public  Button playerTwo;
 
+
+	[SerializeField]
+	public float delay = 0.1f;
+
 	void Start()
 	{
 		//Select Player one button as default
@@ -38,10 +42,10 @@ public class MainMenu : MonoBehaviour
 		while( x <= 6 )
 		{
 			button.gameObject.SetActive( false );
-			yield return new WaitForSeconds( 0.15f );
+			yield return new WaitForSeconds( delay );
 			
 			button.gameObject.SetActive( true );
-			yield return new WaitForSeconds( 0.15f );
+			yield return new WaitForSeconds( delay );
 			
 			x++;
 		}
