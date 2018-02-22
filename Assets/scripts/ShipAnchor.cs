@@ -11,6 +11,6 @@ public class ShipAnchor : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		transform.position = Vector2.Lerp( transform.position , destination.position, speed * Time.fixedDeltaTime );	
+		transform.position = Vector2.MoveTowards( transform.position , destination.position, speed * Time.fixedDeltaTime );	
 	}
 }
