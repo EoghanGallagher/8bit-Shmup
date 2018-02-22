@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 9909465a3d7964adc92ed19553718327
-timeCreated: 1519055160
+guid: 2ea9c0936fd334eaa90b5a8b249b3159
+timeCreated: 1519311770
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: shmup_level1_0
-    21300002: shmup_level1_1
-    21300004: shmup_level1_2
-    21300006: shmup_level1_3
-    21300008: shmup_level1_4
-    21300010: shmup_level1_5
-    21300012: shmup_level1_6
-    21300014: shmup_level1_7
-    21300016: shmup_level1_8
-    21300018: shmup_level1_9
+    21300000: level_1_final_0
+    21300002: level_1_final_1
+    21300004: level_1_final_2
+    21300006: level_1_final_3
+    21300008: level_1_final_4
+    21300010: level_1_final_5
+    21300012: level_1_final_6
+    21300014: level_1_final_7
+    21300016: level_1_final_8
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -67,184 +67,180 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: iPhone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: Android
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: WebGL
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shmup_level1_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 33
-        width: 69
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: shmup_level1_1
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 67
-        width: 134
-        height: 157
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 19, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: shmup_level1_2
+      name: level_1_final_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 131
-        height: 28
+        y: 143
+        width: 224
+        height: 305
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shmup_level1_3
+      name: level_1_final_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 0
-        width: 98
-        height: 30
+        x: 0
+        y: 66
+        width: 134
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shmup_level1_4
+      name: level_1_final_2
       rect:
         serializedVersion: 2
-        x: 233
+        x: 3
         y: 0
-        width: 97
-        height: 30
+        width: 259
+        height: 51
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shmup_level1_5
+      name: level_1_final_3
       rect:
         serializedVersion: 2
-        x: 234
+        x: 268
         y: 0
-        width: 96
-        height: 39
+        width: 194
+        height: 53
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shmup_level1_6
+      name: level_1_final_4
       rect:
         serializedVersion: 2
-        x: 334
-        y: 0
-        width: 128
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: shmup_level1_7
-      rect:
-        serializedVersion: 2
-        x: 466
-        y: 0
+        x: 467
+        y: 2
         width: 193
-        height: 57
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shmup_level1_8
+      name: level_1_final_5
       rect:
         serializedVersion: 2
-        x: 518
-        y: 92
-        width: 92
-        height: 59
+        x: 668
+        y: 1
+        width: 257
+        height: 230
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shmup_level1_9
+      name: level_1_final_6
       rect:
         serializedVersion: 2
-        x: 659
-        y: 0
-        width: 199
-        height: 158
+        x: 1039
+        y: 182
+        width: 184
+        height: 143
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 0, z: 0, w: 6}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: level_1_final_7
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 0
+        width: 384
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: level_1_final_8
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 3
+        width: 385
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0

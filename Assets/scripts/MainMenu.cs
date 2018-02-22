@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
 	{
 		int x = 0;
 
-		while( x <= 6 )
+		while( x <= 3 )
 		{
 			button.gameObject.SetActive( false );
 			yield return new WaitForSeconds( delay );

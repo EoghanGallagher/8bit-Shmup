@@ -1,0 +1,107 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace CreativeSpore.SuperTilemapEditor
+{
+    [RequireComponent(typeof(MeshFilter))]
+    [RequireComponent(typeof(MeshRenderer))]
+    [ExecuteInEditMode] //fix ShouldRunBehaviour warning when using OnTilePrefabCreation
+    public class TileObjMesh : MonoBehaviour
+    {
+
+        [SerializeField]
+        protected Tilemap m_parentTilemap;
+        [SerializeField]
+        protected MeshRenderer m_meshRenderer;
+        [SerializeField]
+        protected MeshFilter m_meshFilter;
+
+        void OnValidate()
+        {
+            Start();
+        }
+
+        void Start()
+        {
+            m_meshRenderer = GetComponent<MeshRenderer>();
+            m_meshFilter = GetComponent<MeshFilter>();
+            if (!m_parentTilemap) m_parentTilemap = GetComponentInParent<Tilemap>();
+        }
+
+#if UNITY_EDITOR
+        void Reset()
+        {
+            Start();
+            m_meshRenderer.material = FindDefaultSpriteMaterial();
+            if (!m_meshFilter.sharedMesh) m_meshFilter.sharedMesh = new Mesh();
+            m_meshFilter.sharedMesh.name = "Quad";
+        }
+#endif
+
+        private MaterialPropertyBlock m_matPropBlock;
+        void UpdateMaterialPropertyBlock()
+        {            
+            if (m_matPropBlock == null)
+                m_matPropBlock = new MaterialPropertyBlock();
+            m_meshRenderer.GetPropertyBlock(m_matPropBlock);
+            m_matPropBlock.SetColor("_Color", m_parentTilemap.TintColor);
+            if (m_parentTilemap.Tileset && m_parentTilemap.Tileset.AtlasTexture != null)
+                m_matPropBlock.SetTexture("_MainTex", m_parentTilemap.Tileset.AtlasTexture);
+            m_meshRenderer.SetPropertyBlock(m_matPropBlock);
+        }
+
+        protected virtual void OnWillRenderObject()
+        {
+            if(m_parentTilemap)
+            {
+                UpdateMaterialPropertyBlock();
+            }
+        }
+
+        protected virtual void OnTilePrefabCreation(TilemapChunk.OnTilePrefabCreationData data)
+        {
+            Tile tile = data.ParentTilemap.GetTile(data.GridX, data.GridY);
+            if (tile != null)
+            {
+                m_meshRenderer.material = data.ParentTilemap.Material;
+                m_meshRenderer.sortingLayerID = data.ParentTilemap.SortingLayerID;
+                m_meshRenderer.sortingOrder = data.ParentTilemap.OrderInLayer;
+                Vector2 cellSizeDiv2 = data.ParentTilemap.CellSize / 2f;
+                Vector3[] vertices = new Vector3[4]
+                {
+                    new Vector3(-cellSizeDiv2.x, -cellSizeDiv2.y, 0),
+                    new Vector3(cellSizeDiv2.x, -cellSizeDiv2.y, 0),
+                    new Vector3(-cellSizeDiv2.x, cellSizeDiv2.y, 0),
+                    new Vector3(cellSizeDiv2.x, cellSizeDiv2.y, 0),
+                };
+                int[] triangles = new int[]{3,0,2,0,3,1};
+                Vector2[] uvs = new Vector2[]
+                {
+                    new Vector2(tile.uv.xMin, tile.uv.yMin),
+                    new Vector2(tile.uv.xMax, tile.uv.yMin),
+                    new Vector2(tile.uv.xMin, tile.uv.yMax),
+                    new Vector2(tile.uv.xMax, tile.uv.yMax),
+                };
+
+                if (!m_meshFilter.sharedMesh) m_meshFilter.sharedMesh = new Mesh();
+                m_meshFilter.sharedMesh.name = "Quad";
+                Mesh mesh = m_meshFilter.sharedMesh;
+                mesh.Clear();
+                mesh.vertices = vertices;
+                mesh.triangles = triangles;
+                mesh.uv = uvs;
+                mesh.RecalculateNormals();
+            }
+        }
+
+        Material FindDefaultSpriteMaterial()
+        {
+#if UNITY_EDITOR && (UNITY_5_4 || UNITY_5_5_OR_NEWER)
+            return UnityEditor.AssetDatabase.GetBuiltinExtraResource<Material>("Sprites-Default.mat"); //fix: Unity 5.4.0f3 is not finding the material using Resources
+#else
+            return Resources.GetBuiltinResource<Material>("Sprites-Default.mat");
+#endif
+        }
+    }
+}

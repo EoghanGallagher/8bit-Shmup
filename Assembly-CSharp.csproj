@@ -51,6 +51,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Kenneys - Rogue Like\RogueLikeMapGenerator.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Data\ParameterContainer.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\A2X2Brush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\AnimBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\BrushBehaviour.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\BrushUtil.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\CarpetBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\IBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\RandomBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\RoadBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\TilesetBrush.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\EditorGlobalSettings.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\SortingLayerAttribute.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Tilemap.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk_Collider.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk_Renderer.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk_TileObjFactory.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapGroup.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TileObjectBehaviour.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TileObjMesh.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Tileset.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\EditorUtils.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\GizmosEx.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\HandlesEx.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapDrawingUtils.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapUtils.cs" />
+     <Compile Include="Assets\PowerUpManager.cs" />
      <Compile Include="Assets\scripts\Bullet.cs" />
      <Compile Include="Assets\scripts\CameraFollow.cs" />
      <Compile Include="Assets\scripts\Enemy.cs" />
@@ -62,8 +90,11 @@
      <Compile Include="Assets\scripts\Player\WeaponSystem.cs" />
      <Compile Include="Assets\scripts\PlayerButton.cs" />
      <Compile Include="Assets\scripts\PoolManager.cs" />
+     <Compile Include="Assets\scripts\PowerUp.cs" />
      <Compile Include="Assets\scripts\ShipAnchor.cs" />
      <Compile Include="Assets\scripts\SoundManager.cs" />
+     <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Tiled - Tmx Import\license.txt" />
+     <None Include="Assets\CreativeSpore\SuperTilemapEditor\changelog.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/Shared/Unity/8bit Shmup/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>

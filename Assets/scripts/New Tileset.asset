@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d98f5be51926f46bc797504da5ad22, type: 3}
+  m_Name: New Tileset
+  m_EditorClassIdentifier: 
+  AtlasTexture: {fileID: 2800000, guid: 165f1f38141824b4baa0826b39d4e5e6, type: 3}
+  TilePxSize: {x: 32, y: 32}
+  SliceOffset: {x: 0, y: 0}
+  SlicePadding: {x: 0, y: 0}
+  BackgroundColor: {r: 0.8039216, g: 0.8039216, b: 0.8039216, a: 0.8039216}
+  VisualTileSize: {x: 32, y: 32}
+  VisualTilePadding: 1
+  TileRowLength: 8
+  m_tileViews: []
+  m_tilesetWidth: 0
+  m_tilesetHeight: 0
+  m_brushes: []
+  m_tiles: []
+  m_pixelsPerUnit: 100
+  m_brushGroupNames:
+  - Default
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_brushGroupAutotilingMatrix: 01000000020000000400000008000000100000002000000040000000800000000001000000020000000400000008000000100000002000000040000000800000000001000000020000000400000008000000100000002000000040000000800000000001000000020000000400000008000000100000002000000040
+  m_brushTypeMaskOptions: []
+  m_brushTypeMask: -1
