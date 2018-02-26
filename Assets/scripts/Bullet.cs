@@ -28,13 +28,17 @@ public class Bullet : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-        
+		
 		if( other.gameObject.tag == "Enemy" )
 		{
-				Debug.Log( "Enemy Hit" );
-				IDestroyable iD = other.GetComponent<IDestroyable>();
-				iD.Destroy();
-				gameObject.SetActive( false );
+				
+				
+			IDestroyable iD = other.GetComponent<IDestroyable>();
+			iD.Destroy();  
+				
+
+			gameObject.SetActive( false );
+
 		}
 		else if( other.tag == "Terrain" )
 		{
