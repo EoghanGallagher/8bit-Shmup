@@ -36,18 +36,26 @@ public class Fan : MonoBehaviour , IDestroyable
 		movementDirection = new Vector2( -2.0f , 0 ) * speed;
 
 		yield return new WaitForSeconds( 1.5f );
-	
-		tempY = player.position.y;
 
-		if( tempY >= 2.0f )
-		{
-			tempY = 2.0f;
-		}
-		else if( tempY <= -2.0f )
+		if( player.position.y < transform.position.y )
 		{
 			tempY = -2.0f;
 		}
+		else
+		{
+			tempY = 2.0f;
+		}
+
+		if( transform.position.y >= 2.3  && player.position.y > transform.position.y )
+		{
+			tempY = 0;
+		} 
 		
+		if( transform.position.y <= -2 && player.position.y < transform.position.y )
+		{
+			tempY = 0;
+		}
+
 		movementDirection = new Vector2( 2.0f , tempY ) * speed;
 
 		yield return new WaitForSeconds( 0.5f );
