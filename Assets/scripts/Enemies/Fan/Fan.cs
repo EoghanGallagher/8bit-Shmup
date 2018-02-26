@@ -21,6 +21,8 @@ public class Fan : MonoBehaviour , IDestroyable
 
 	private Animator animator;
 
+	float tempY;
+
 
 	IEnumerator Start()
 	{
@@ -35,7 +37,18 @@ public class Fan : MonoBehaviour , IDestroyable
 
 		yield return new WaitForSeconds( 1.5f );
 	
-		movementDirection = new Vector2( 2.0f , player.position.y ) * speed;
+		tempY = player.position.y;
+
+		if( tempY >= 2.0f )
+		{
+			tempY = 2.0f;
+		}
+		else if( tempY <= -2.0f )
+		{
+			tempY = -2.0f;
+		}
+		
+		movementDirection = new Vector2( 2.0f , tempY ) * speed;
 
 		yield return new WaitForSeconds( 0.5f );
 		
@@ -46,8 +59,6 @@ public class Fan : MonoBehaviour , IDestroyable
 	void FixedUpdate()
 	{
 		Move( movementDirection );
-
-
 	}
 
 	void Move( Vector2 movementDirection )
