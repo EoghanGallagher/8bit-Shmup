@@ -82,6 +82,7 @@
      <Compile Include="Assets\scripts\Bullet.cs" />
      <Compile Include="Assets\scripts\CameraFollow.cs" />
      <Compile Include="Assets\scripts\Enemies\Fan\Fan.cs" />
+     <Compile Include="Assets\scripts\Enemies\Rugal\Rugal.cs" />
      <Compile Include="Assets\scripts\Enemy.cs" />
      <Compile Include="Assets\scripts\GameManager.cs" />
      <Compile Include="Assets\scripts\Interfaces\IDestroyable.cs" />
