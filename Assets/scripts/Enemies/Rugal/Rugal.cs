@@ -49,8 +49,6 @@ public class Rugal : MonoBehaviour , IDestroyable
 	{
 		temp = transform.position;
 		
-		
-		
 		if( target.position.x < transform.position.x )
 		{
 			direction = ( target.position - transform.position ).normalized;
@@ -61,6 +59,14 @@ public class Rugal : MonoBehaviour , IDestroyable
 			Debug.Log( "Position X is Greater....." );
 			spriteRenderer.sprite = forward;
 			direction = Vector2.left;
+		}
+		
+		
+		if( target.position.y < ( transform.position.y + 0.25f ) && target.position.y > ( transform.position.y - 0.25f ) )
+		{
+			spriteRenderer.sprite = forward;
+			direction = Vector2.left * speed * 2;
+			Debug.Log( "Attacking ...." );
 		}
 		
 		rigidbody2d.velocity = direction * speed;
