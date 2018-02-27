@@ -94,4 +94,10 @@ public class Rugal : MonoBehaviour , IDestroyable
 	{
 
 	}
+
+	void OnBecameInvisible() 
+	{
+        Debug.Log( "Fan Im fading....." );
+		gameObject.SetActive( false );
+    }
 }

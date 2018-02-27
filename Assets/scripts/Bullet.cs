@@ -31,12 +31,10 @@ public class Bullet : MonoBehaviour
 		
 		if( other.gameObject.tag == "Enemy" )
 		{
-				
-				
+					
 			IDestroyable iD = other.GetComponent<IDestroyable>();
 			iD.Destroy();  
 				
-
 			gameObject.SetActive( false );
 
 		}
