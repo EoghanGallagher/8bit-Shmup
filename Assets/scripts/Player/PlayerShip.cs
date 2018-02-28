@@ -9,7 +9,7 @@ using UnityEngine;
      public float minX = -3.0f, maxX = 3.0f, minY = -3.0f, maxY = 3.0f;
  }
 
-public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
+public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 {
 
 	public Boundary boundary;
@@ -39,12 +39,24 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 	private WeaponSystem weaponSystem;
 
 	[SerializeField]
-	private GameObject muzzle;
+	private GameObject playerShipMuzzle;
+
+	[SerializeField]
+	List<IObserver> observers;
+
+	public GameObject option1;
+	public GameObject option2;
 
 
 	// Use this for initialization
 	private void Start () 
 	{
+
+		observers = new List<IObserver>();
+
+		Register( option1.GetComponent<IObserver>() );
+		Register( option2.GetComponent<IObserver>()  );
+
 		//Get Attached RigidBody
 		rigidBody2D = GetComponent<Rigidbody2D>();
 
@@ -55,7 +67,9 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 		_transform = transform;
 
 		//Get Attached Weapon System
-		weaponSystem = muzzle.GetComponent<WeaponSystem>();
+		weaponSystem = playerShipMuzzle.GetComponent<WeaponSystem>();
+
+		
 
 	}
 	
@@ -70,7 +84,6 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 
 		RestrictShipMovement();
 
-		
 		myTime = myTime + Time.deltaTime;
 
 		if( Input.GetButton( "Jump" ) && myTime > nextFire )
@@ -86,9 +99,8 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 
 	public void Fire()
 	{
-		Debug.Log( "Pew Pew" );
 		weaponSystem.LoadBullet();
-
+		NotifyObserver();
 	}
 
 	//Change Ship Orientation basd on vertical movement
@@ -112,8 +124,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 	//Make sure ship doesnt move beyond screen borders.
 	private void RestrictShipMovement()
 	{
-		
-	    Vector3 pos = Camera.main.WorldToViewportPoint ( transform.position );
+		Vector3 pos = Camera.main.WorldToViewportPoint ( transform.position );
          pos.x = Mathf.Clamp( pos.x , 0.00f , 1.00f );
          pos.y = Mathf.Clamp( pos.y , 0.15f , 0.9f );
          transform.position = Camera.main.ViewportToWorldPoint( pos );
@@ -122,9 +133,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 
 	public void Destroy()
 	{
-		Debug.Log( "Destroying Ship..." );
-		StartCoroutine( PlayerDeath() );
-		
+		StartCoroutine( PlayerDeath() );	
 	}
 
 	//Player Death Animation and Cleanup
@@ -140,10 +149,28 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable
 	{
 		if( coll.gameObject.tag == "Terrain" )
 		{
-			Debug.Log( "Oh Fucck  Aaaaaah..." );
 			speed = 0;
-
 			Destroy( );
+		}
+	}
+
+	//Observer Pattern
+	public void Register( IObserver observer )
+	{
+		observers.Add( observer );
+		
+	}
+
+	public void UnRegister( IObserver observer )
+	{
+		observers.Remove( observer );
+	}
+
+	public void NotifyObserver()
+	{
+		foreach( IObserver observer in observers )
+		{
+			observer.OnNotify();
 		}
 	}
 }

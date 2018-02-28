@@ -28,6 +28,8 @@ public class Rugal : MonoBehaviour , IDestroyable
 	[SerializeField]
 	private Sprite down;
 
+	private Animator animator;
+
 	void Start()
 	{
 		
@@ -36,6 +38,7 @@ public class Rugal : MonoBehaviour , IDestroyable
 
 		spriteRenderer = GetComponent< SpriteRenderer >();
 
+		animator = GetComponent<Animator>();
 
 	}
 
@@ -90,9 +93,16 @@ public class Rugal : MonoBehaviour , IDestroyable
 		}
 	}
 
+	
 	public void Destroy()
 	{
+		animator.SetTrigger( "death" );
+		Invoke( "DisableSelf" , 0.5f );
+	}
 
+	public void DisableSelf()
+	{
+		gameObject.SetActive( false );
 	}
 
 	void OnBecameInvisible() 

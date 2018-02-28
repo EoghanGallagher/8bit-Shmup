@@ -5,6 +5,7 @@ public class ShipAnchor : MonoBehaviour {
 	
 	[SerializeField]
 	private float speed;
+
 	public Transform destination;
 	// Use this for initialization
 	

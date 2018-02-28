@@ -46,4 +46,10 @@ public class Garun : MonoBehaviour , IDestroyable
 	{
 		gameObject.SetActive( false );
 	}
+
+	void OnBecameInvisible() 
+	{
+        Debug.Log( "Fan Im fading....." );
+		gameObject.SetActive( false );
+    }
 }
