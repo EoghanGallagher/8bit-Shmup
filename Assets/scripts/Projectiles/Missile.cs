@@ -13,8 +13,6 @@ public class Missile : MonoBehaviour
 	private Rigidbody2D rigidbody2D;
 
 
-
-
 	[SerializeField]
 	private SpriteRenderer spriteRenderer;
 	// Use this for initialization
@@ -34,7 +32,7 @@ public class Missile : MonoBehaviour
 		rigidbody2D.velocity = direction * speed;
 	}
 
-		void OnBecameInvisible() 
+	void OnBecameInvisible() 
 	{
         Debug.Log( "Missile Im fading....." );
 		gameObject.SetActive( false );
@@ -48,6 +46,7 @@ public class Missile : MonoBehaviour
 		{
 			spriteRenderer.sprite = onGround;
 			direction = Vector2.right;
+			speed = speed +2;
 		}
 
 		if( other.tag == "Enemy" )
@@ -55,6 +54,12 @@ public class Missile : MonoBehaviour
 			IDestroyable iD = other.GetComponent<IDestroyable>();
 			iD.Destroy();  
 				
+			gameObject.SetActive( false ); 
+		}
+
+
+		if( other.tag == "Terrain" )
+		{
 			gameObject.SetActive( false ); 
 		}
 	}
