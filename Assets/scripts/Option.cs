@@ -93,6 +93,6 @@ public class Option : MonoBehaviour , IObserver
 
 	public void Fire()
 	{
-		weaponSystem.LoadBullet();
+		weaponSystem.Bullet();
 	}
 }

@@ -6,6 +6,9 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: bullets_and_text_0
     21300002: bullets_and_text_1
+    21300004: bullets_and_text_2
+    21300006: bullets_and_text_3
+    21300008: bullets_and_text_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -133,6 +136,48 @@ TextureImporter:
         y: 347
         width: 44
         height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bullets_and_text_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 418
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bullets_and_text_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 347
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bullets_and_text_4
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 283
+        width: 77
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

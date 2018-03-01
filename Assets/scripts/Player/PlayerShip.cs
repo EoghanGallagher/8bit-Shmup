@@ -36,10 +36,12 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
     private float nextFire = 0.2F;
 
-	private WeaponSystem weaponSystem;
+	private WeaponSystem weaponSystem , missileSystem;
 
 	[SerializeField]
-	private GameObject playerShipMuzzle;
+	private GameObject playerShipMuzzle , MissileLauncher;
+
+	
 
 	[SerializeField]
 	List<IObserver> observers;
@@ -69,6 +71,8 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		//Get Attached Weapon System
 		weaponSystem = playerShipMuzzle.GetComponent<WeaponSystem>();
 
+		missileSystem = MissileLauncher.GetComponent<WeaponSystem>();
+
 		
 
 	}
@@ -86,22 +90,34 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 		myTime = myTime + Time.deltaTime;
 
-		if( Input.GetButton( "Jump" ) && myTime > nextFire )
+		/*if( Input.GetButton( "Jump" ) && myTime > nextFire )
 		{
 			nextFire = myTime + fireDelta;
 			Fire();
 			nextFire = nextFire - myTime;
             myTime = 0.0F;
+		}*/
+
+		if( Input.GetButton( "Jump" ) )
+		{
+			Fire();
 		}
+
+	
 	
 	}
 
 
 	public void Fire()
 	{
-		weaponSystem.LoadBullet();
+		weaponSystem.Bullet();
+
+		if( MissileLauncher.activeSelf )
+			missileSystem.Missile();
+
 		NotifyObserver();
 	}
+
 
 	//Change Ship Orientation basd on vertical movement
 	private void AnimateShipMovement( float verticalPosition )
@@ -125,8 +141,8 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	private void RestrictShipMovement()
 	{
 		Vector3 pos = Camera.main.WorldToViewportPoint ( transform.position );
-         pos.x = Mathf.Clamp( pos.x , 0.00f , 1.00f );
-         pos.y = Mathf.Clamp( pos.y , 0.15f , 0.9f );
+         pos.x = Mathf.Clamp( pos.x , 0.1f , 0.9f );
+         pos.y = Mathf.Clamp( pos.y , 0.15f , 0.95f );
          transform.position = Camera.main.ViewportToWorldPoint( pos );
 	}
 
