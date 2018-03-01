@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour 
+public class Missile : MonoBehaviour , IDestroyable
 {
 	[SerializeField]
 	private float speed;
 	
 	[SerializeField]
-	private Vector2 direction;
+	private Vector2 direction , tempDirection;
 
 	private Rigidbody2D rigidbody2D;
 
@@ -18,12 +18,16 @@ public class Missile : MonoBehaviour
 	// Use this for initialization
 
 	[SerializeField]
-	private Sprite onGround;
+	private Sprite falling,  onGround;
+
+
 
 	void Start () 
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+
+		tempDirection = direction;
 	}
 	
 	// Update is called once per frame
@@ -35,7 +39,7 @@ public class Missile : MonoBehaviour
 	void OnBecameInvisible() 
 	{
         Debug.Log( "Missile Im fading....." );
-		gameObject.SetActive( false );
+		Destroy();
     }
 
 	void OnTriggerEnter2D(Collider2D other) 
@@ -45,22 +49,36 @@ public class Missile : MonoBehaviour
 		if( other.tag == "Ground" )
 		{
 			spriteRenderer.sprite = onGround;
+			
 			direction = Vector2.right;
-			speed = speed +2;
+			
 		}
 
 		if( other.tag == "Enemy" )
 		{
 			IDestroyable iD = other.GetComponent<IDestroyable>();
-			iD.Destroy();  
-				
-			gameObject.SetActive( false ); 
-		}
+			iD.Destroy(); 
 
+			direction = tempDirection;
+			
+			Destroy();
+		}
 
 		if( other.tag == "Terrain" )
 		{
-			gameObject.SetActive( false ); 
+			spriteRenderer.sprite = falling;
+			direction = tempDirection;
+			
+			Destroy();
 		}
+
+
+	}
+
+	public void Destroy()
+	{
+		spriteRenderer.sprite = falling;
+		direction = new Vector2( 0.5f , -1.0f );
+		gameObject.SetActive( false );
 	}
 }
