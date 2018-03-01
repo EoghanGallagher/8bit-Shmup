@@ -51,6 +51,7 @@ public class Missile : MonoBehaviour , IDestroyable
 			spriteRenderer.sprite = onGround;
 			
 			direction = Vector2.right;
+			speed = 5;
 			
 		}
 
@@ -80,5 +81,6 @@ public class Missile : MonoBehaviour , IDestroyable
 		spriteRenderer.sprite = falling;
 		direction = new Vector2( 0.5f , -1.0f );
 		gameObject.SetActive( false );
+		speed = 3;
 	}
 }
