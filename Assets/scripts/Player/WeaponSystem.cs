@@ -21,7 +21,7 @@ public class WeaponSystem : MonoBehaviour
 	private bool isLoadBulletExecuting = false;
 
 
-
+	//Bullets
 	private IEnumerator LoadBullet( )
 	{
 		if( isLoadBulletExecuting )
@@ -35,6 +35,8 @@ public class WeaponSystem : MonoBehaviour
 		isLoadBulletExecuting = false;
 	}
 
+
+	//Missiles
 	public void Missile()
 	{
 		StartCoroutine( "LoadMissile" );
@@ -57,6 +59,14 @@ public class WeaponSystem : MonoBehaviour
 
 		isLoadMissileExecuting = false;
 
+	}
+
+
+	//Lasers
+
+	public void Laser()
+	{
+		
 	}
 
 }

@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
 		
 		yield return new WaitForSeconds( delayBeforSpawn );
 
-		for( int i =0; i <= spawnCount; i++ )
+		for( int i =0; i < spawnCount; i++ )
 		{
 			yield return new WaitForSeconds( spawnDelay );
 
