@@ -35,7 +35,7 @@ public class Garun : BaseCharacter
 		rigidbody2d.velocity = tempPosition;
 	}
 
-	public void Destroy()
+	public override void Destroy()
 	{
 		animator.SetTrigger( "death" );
 		base.Destroy();

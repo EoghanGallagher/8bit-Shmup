@@ -10,7 +10,7 @@ public class Missile : BaseCharacter
 	[SerializeField]
 	private Vector2 direction , tempDirection;
 
-	private Rigidbody2D rigidbody2D;
+	private Rigidbody2D rigidbody2d;
 
 
 	[SerializeField]
@@ -24,7 +24,7 @@ public class Missile : BaseCharacter
 
 	void Start () 
 	{
-		rigidbody2D = GetComponent<Rigidbody2D>();
+		rigidbody2d = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
 		tempDirection = direction;
@@ -33,7 +33,7 @@ public class Missile : BaseCharacter
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		rigidbody2D.velocity = direction * speed;
+		rigidbody2d.velocity = direction * speed;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) 

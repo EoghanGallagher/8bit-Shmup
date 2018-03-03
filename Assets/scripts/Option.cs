@@ -10,10 +10,6 @@ public class Option : MonoBehaviour , IObserver
 	private Transform target;
 
 	[SerializeField]
-	private Rigidbody2D rigidbody2D;
-
-
-	[SerializeField]
 	private Vector3 offSet;
 
 	private Vector2 desiredPosition;
@@ -32,7 +28,7 @@ public class Option : MonoBehaviour , IObserver
 	
 	void Start () 
 	{
-		rigidbody2D = GetComponent<Rigidbody2D>();
+		
 		target = GameObject.FindGameObjectWithTag( "Player" ).transform;
 		weaponSystem = muzzle.GetComponent<WeaponSystem>();
 

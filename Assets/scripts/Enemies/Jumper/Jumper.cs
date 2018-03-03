@@ -9,14 +9,14 @@ public class Jumper : MonoBehaviour
 
 	public float nextJump;
 
-	Rigidbody2D rigidbody2D;
+	Rigidbody2D rigidbody2d;
 	// Use this for initialization
 
 	private Vector2 direction;
 	void Start () 
 	{
 
-		rigidbody2D = GetComponent<Rigidbody2D>();
+		rigidbody2d = GetComponent<Rigidbody2D>();
 	
 
 	}
