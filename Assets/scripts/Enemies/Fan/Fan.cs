@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fan : MonoBehaviour , IDestroyable 
+public class Fan : BaseCharacter
 {
 
 	// Use this for initialization
@@ -18,8 +18,6 @@ public class Fan : MonoBehaviour , IDestroyable
 
 	[SerializeField]
 	private Transform player;
-
-	private Animator animator;
 
 	float tempY;
 
@@ -74,31 +72,16 @@ public class Fan : MonoBehaviour , IDestroyable
 		rigidbody2d.velocity = movementDirection;
 	}
 
-	public void Destroy()
+	public override void Destroy()
 	{
-		Debug.Log( "Destroying myself ...." );
-
+	
 		movementDirection = Vector2.zero;
 
 		animator.SetTrigger( "death" );
 
-		Invoke( "DisableSelf" , 0.5f );
+		base.Destroy();
 		
 	}
 
-	public void DisableSelf()
-	{
-		gameObject.SetActive( false );
-	}
-
-	void OnBecameInvisible() 
-	{
-        Debug.Log( "Fan Im fading....." );
-		gameObject.SetActive( false );
-    }
-
-
-
-	
 	
 }

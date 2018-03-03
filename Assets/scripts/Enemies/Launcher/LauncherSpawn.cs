@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LauncherSpawn : MonoBehaviour , IDestroyable
+public class LauncherSpawn : BaseCharacter
 {
 	[SerializeField]
 	private bool isFlipped;
@@ -20,10 +20,7 @@ public class LauncherSpawn : MonoBehaviour , IDestroyable
 
 	private Vector2 movementDirection;
 
-	private Animator animator;
-
 	private bool gotTarget = false , isOkToMove = false;
-
 
 	private Vector2 targetPosition;
 
@@ -84,35 +81,17 @@ public class LauncherSpawn : MonoBehaviour , IDestroyable
 				movementDirection = Vector2.left;
 			}
 		}
-		
-	
-
 	
 	}
 
-	public void Destroy()
+	public override void Destroy()
 	{
-		Debug.Log( "Destroying myself ...." );
-
 		movementDirection = Vector2.zero;
-
+		
 		animator.SetTrigger( "death" );
 
-		Invoke( "DisableSelf" , 0.5f );
-		
+		base.Destroy();
 	}
-
-	public void DisableSelf()
-	{
-		gameObject.SetActive( false );
-	}
-
-	void OnBecameInvisible() 
-	{
-        Debug.Log( "Fan Im fading....." );
-		gameObject.SetActive( false );
-    }
-
 
 	public void SetFlipped( bool b )
 	{

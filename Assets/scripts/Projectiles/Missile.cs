@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour , IDestroyable
+public class Missile : BaseCharacter
 {
 	[SerializeField]
 	private float speed;
@@ -35,12 +35,6 @@ public class Missile : MonoBehaviour , IDestroyable
 	{
 		rigidbody2D.velocity = direction * speed;
 	}
-
-	void OnBecameInvisible() 
-	{
-        Debug.Log( "Missile Im fading....." );
-		Destroy();
-    }
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
@@ -76,11 +70,12 @@ public class Missile : MonoBehaviour , IDestroyable
 
 	}
 
-	public void Destroy()
+	public override void Destroy()
 	{
 		spriteRenderer.sprite = falling;
 		direction = new Vector2( 0.5f , -1.0f );
-		gameObject.SetActive( false );
 		speed = 3;
+
+		gameObject.SetActive( false );
 	}
 }

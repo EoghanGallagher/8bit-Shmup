@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rugal : MonoBehaviour , IDestroyable
+public class Rugal : BaseCharacter
 {
 
 	private Transform target;
@@ -28,17 +28,15 @@ public class Rugal : MonoBehaviour , IDestroyable
 	[SerializeField]
 	private Sprite down;
 
-	private Animator animator;
+	//private Animator animator;
 
-	void Start()
+	public void Start()
 	{
-		
+	
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		target = GameObject.FindGameObjectWithTag( "Player" ).transform;
-
+		animator.GetComponent<Animator>();
 		spriteRenderer = GetComponent< SpriteRenderer >();
-
-		animator = GetComponent<Animator>();
 
 	}
 
@@ -94,20 +92,10 @@ public class Rugal : MonoBehaviour , IDestroyable
 	}
 
 	
-	public void Destroy()
+	public override void Destroy()
 	{
 		animator.SetTrigger( "death" );
-		Invoke( "DisableSelf" , 0.5f );
+		base.Destroy();
 	}
 
-	public void DisableSelf()
-	{
-		gameObject.SetActive( false );
-	}
-
-	void OnBecameInvisible() 
-	{
-        Debug.Log( "Fan Im fading....." );
-		gameObject.SetActive( false );
-    }
 }

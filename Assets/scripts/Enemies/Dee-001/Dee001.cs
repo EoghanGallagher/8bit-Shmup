@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dee001 : MonoBehaviour 
+public class Dee001 : BaseCharacter 
 {
 
 	[SerializeField]
@@ -25,7 +25,7 @@ public class Dee001 : MonoBehaviour
 
 		if( playerShip.position.x < transform.position.x )
 		{
-			
+
 		}
 		
 	}
