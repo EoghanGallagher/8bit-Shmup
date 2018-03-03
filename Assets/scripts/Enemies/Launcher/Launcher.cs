@@ -5,6 +5,8 @@ using UnityEngine;
 public class Launcher : MonoBehaviour , IDestroyable
 {
 
+	[SerializeField]
+	private bool isFlipped;
 	private Animator animator;
 	// Use this for initialization
 
@@ -60,6 +62,13 @@ public class Launcher : MonoBehaviour , IDestroyable
 		if( other.tag == "Enemy" )
 		{
 				spawnCount ++;
+
+				if( isFlipped )
+				{
+					LauncherSpawn spawn = other.GetComponent<LauncherSpawn>();
+					spawn.SetFlipped( true );
+				}
+
 		}
 
 		if( spawnCount == spawnLimit )

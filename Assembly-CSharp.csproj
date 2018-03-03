@@ -80,6 +80,7 @@
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapUtils.cs" />
      <Compile Include="Assets\PowerUpManager.cs" />
      <Compile Include="Assets\scripts\CameraFollow.cs" />
+     <Compile Include="Assets\scripts\Enemies\Dee-001\Dee001.cs" />
      <Compile Include="Assets\scripts\Enemies\Fan\Fan.cs" />
      <Compile Include="Assets\scripts\Enemies\Garun\Garun.cs" />
      <Compile Include="Assets\scripts\Enemies\Jumper\Jumper.cs" />

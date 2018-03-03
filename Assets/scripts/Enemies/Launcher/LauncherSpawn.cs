@@ -5,6 +5,9 @@ using UnityEngine;
 public class LauncherSpawn : MonoBehaviour , IDestroyable
 {
 	[SerializeField]
+	private bool isFlipped;
+	
+	[SerializeField]
 	private float speed;
 
 	[SerializeField]
@@ -19,13 +22,13 @@ public class LauncherSpawn : MonoBehaviour , IDestroyable
 
 	private Animator animator;
 
-	private bool gotTarget = false;
+	private bool gotTarget = false , isOkToMove = false;
 
 
 	private Vector2 targetPosition;
 
 	// Use this for initialization
-	void Start () 
+	IEnumerator Start () 
 	{
 		rigidBody2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
@@ -34,12 +37,20 @@ public class LauncherSpawn : MonoBehaviour , IDestroyable
 
 		_transform = transform;
 
+		movementDirection = _transform.up;
+		yield return new WaitForSeconds( 0.25f );
+		movementDirection = Vector2.left;
+		isOkToMove = true;
+
 	}
 
 
 	void FixedUpdate()
 	{
-		Move();
+		if( isOkToMove )
+			Move();
+		
+		rigidBody2D.velocity = movementDirection * speed;
 	}
 
 	public void Move()
@@ -50,17 +61,33 @@ public class LauncherSpawn : MonoBehaviour , IDestroyable
 			gotTarget = true;
 		}
 		
-		
-		if( _transform.position.y < targetPosition.y || _transform.position.y < 0.025f )
+
+		if( !isFlipped )
 		{
-			movementDirection = new Vector2( 0 , 1.0f );
+			if( _transform.position.y < targetPosition.y  )
+			{
+				movementDirection = _transform.up;
+			}
+			else
+			{
+				movementDirection = Vector2.left;
+			}	
 		}
 		else
 		{
-			movementDirection = new Vector2( -1.0f , 0.0f );
+			if( _transform.position.y > targetPosition.y )
+			{
+				movementDirection = _transform.up;
+			}
+			else
+			{
+				movementDirection = Vector2.left;
+			}
 		}
+		
+	
 
-		rigidBody2D.velocity = movementDirection * speed;
+	
 	}
 
 	public void Destroy()
@@ -85,6 +112,12 @@ public class LauncherSpawn : MonoBehaviour , IDestroyable
         Debug.Log( "Fan Im fading....." );
 		gameObject.SetActive( false );
     }
+
+
+	public void SetFlipped( bool b )
+	{
+		isFlipped = b;
+	}
 	
 	
 	
