@@ -38,8 +38,6 @@ public class Missile : BaseCharacter
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		Debug.Log( "Missile " + other.name );
-		
 		if( other.tag == "Ground" )
 		{
 			spriteRenderer.sprite = onGround;

@@ -9,43 +9,139 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0d98f5be51926f46bc797504da5ad22, type: 3}
-  m_Name: level_1
+  m_Name: level_2
   m_EditorClassIdentifier: 
-  AtlasTexture: {fileID: 2800000, guid: 9fb99dc1d55d04888a8765447e86fed8, type: 3}
-  TilePxSize: {x: 111, y: 157}
-  SliceOffset: {x: 0, y: 1}
-  SlicePadding: {x: 0, y: 0}
+  AtlasTexture: {fileID: 2800000, guid: 490056e7e46a94500b6068f14f1d5923, type: 3}
+  TilePxSize: {x: 24, y: 20}
+  SliceOffset: {x: 308, y: 4}
+  SlicePadding: {x: 0, y: 8}
   BackgroundColor: {r: 0.8039216, g: 0.8039216, b: 0.8039216, a: 0.8039216}
-  VisualTileSize: {x: 27.75, y: 39.25}
+  VisualTileSize: {x: 89.520004, y: 74.600006}
   VisualTilePadding: 1
-  TileRowLength: 1
+  TileRowLength: 2
   m_tileViews: []
-  m_tilesetWidth: 1
-  m_tilesetHeight: 6
+  m_tilesetWidth: 2
+  m_tilesetHeight: 8
   m_brushes: []
   m_tiles:
   - uv:
       serializedVersion: 2
-      x: 0
-      y: 0.29464287
-      width: 0.12937063
-      height: 0.70089287
+      x: 0.92771083
+      y: 0.85
+      width: 0.072289154
+      height: 0.125
     collData:
       vertices: []
       type: 1
     paramContainer:
       m_paramList: []
     prefabData:
-      prefab: {fileID: 0}
+      prefab: {fileID: 1543971280436096, guid: 09c6cbf54f7954a1cb31f630e43e1a5e, type: 2}
       offset: {x: 0, y: 0, z: 0}
       offsetMode: 0
       showTileWithPrefab: 0
   - uv:
       serializedVersion: 2
-      x: 0.0023310024
-      y: 0.14732143
-      width: 0.074592076
-      height: 0.15178572
+      x: 0
+      y: 0.85
+      width: 0.16867469
+      height: 0.125
+    collData:
+      vertices: []
+      type: 0
+    paramContainer:
+      m_paramList: []
+    prefabData:
+      prefab: {fileID: 1633570933354980, guid: 0b349cb38a8be454a981b155e038f728, type: 2}
+      offset: {x: 0, y: 0, z: 0}
+      offsetMode: 0
+      showTileWithPrefab: 0
+  - uv:
+      serializedVersion: 2
+      x: 0.012048192
+      y: 0.65000004
+      width: 0.1566265
+      height: 0.15
+    collData:
+      vertices: []
+      type: 0
+    paramContainer:
+      m_paramList: []
+    prefabData:
+      prefab: {fileID: 1396251989020246, guid: 67d067ce429574bd291c0a904cbe77a5, type: 2}
+      offset: {x: 0, y: 0, z: 0}
+      offsetMode: 0
+      showTileWithPrefab: 0
+  - uv:
+      serializedVersion: 2
+      x: 0.20481926
+      y: 0.95
+      width: 0.14457831
+      height: 0.05
+    collData:
+      vertices: []
+      type: 0
+    paramContainer:
+      m_paramList: []
+    prefabData:
+      prefab: {fileID: 1546004504367090, guid: 90ceff0acc11e463cab971417629f6e8, type: 2}
+      offset: {x: 0, y: 0, z: 0}
+      offsetMode: 0
+      showTileWithPrefab: 0
+  - uv:
+      serializedVersion: 2
+      x: 0.19277108
+      y: 0.85
+      width: 0.16867469
+      height: 0.075
+    collData:
+      vertices: []
+      type: 0
+    paramContainer:
+      m_paramList: []
+    prefabData:
+      prefab: {fileID: 1228342035063382, guid: 71bc80ab3e2774e6fbde7a190f5e68ea, type: 2}
+      offset: {x: 0, y: 0, z: 0}
+      offsetMode: 0
+      showTileWithPrefab: 0
+  - uv:
+      serializedVersion: 2
+      x: 0.19277108
+      y: 0.65000004
+      width: 0.25301203
+      height: 0.15
+    collData:
+      vertices: []
+      type: 0
+    paramContainer:
+      m_paramList: []
+    prefabData:
+      prefab: {fileID: 1721693960911876, guid: 47e628a4a3f84415a928c8a6ccdc3565, type: 2}
+      offset: {x: 0, y: 0, z: 0}
+      offsetMode: 0
+      showTileWithPrefab: 0
+  - uv:
+      serializedVersion: 2
+      x: 0.38554215
+      y: 0.85
+      width: 0.26506025
+      height: 0.125
+    collData:
+      vertices: []
+      type: 0
+    paramContainer:
+      m_paramList: []
+    prefabData:
+      prefab: {fileID: 1787236046146866, guid: 8fa24e7d9bf3145d5b93b021ca7ff926, type: 2}
+      offset: {x: 0, y: 0, z: 0}
+      offsetMode: 0
+      showTileWithPrefab: 0
+  - uv:
+      serializedVersion: 2
+      x: 0.4698795
+      y: 0.65000004
+      width: 0.1566265
+      height: 0.15
     collData:
       vertices: []
       type: 0
@@ -58,117 +154,37 @@ MonoBehaviour:
       showTileWithPrefab: 0
   - uv:
       serializedVersion: 2
-      x: 0.0023310024
+      x: 0.6506024
+      y: 0.65000004
+      width: 0.25301203
+      height: 0.15
+    collData:
+      vertices: []
+      type: 0
+    paramContainer:
+      m_paramList: []
+    prefabData:
+      prefab: {fileID: 0}
+      offset: {x: 0, y: 0, z: 0}
+      offsetMode: 0
+      showTileWithPrefab: 0
+  - uv:
+      serializedVersion: 2
+      x: 0.19277108
       y: 0
-      width: 0.14918415
-      height: 0.13392858
+      width: 0.25301203
+      height: 0.6
     collData:
       vertices: []
       type: 0
     paramContainer:
       m_paramList: []
     prefabData:
-      prefab: {fileID: 0}
+      prefab: {fileID: 1518333518841382, guid: 7c04e33bb1b2d42b79641d53a8d717b7, type: 2}
       offset: {x: 0, y: 0, z: 0}
       offsetMode: 0
       showTileWithPrefab: 0
-  - uv:
-      serializedVersion: 2
-      x: 0.15617716
-      y: 0
-      width: 0.11188811
-      height: 0.13839287
-    collData:
-      vertices: []
-      type: 0
-    paramContainer:
-      m_paramList: []
-    prefabData:
-      prefab: {fileID: 0}
-      offset: {x: 0, y: 0, z: 0}
-      offsetMode: 0
-      showTileWithPrefab: 0
-  - uv:
-      serializedVersion: 2
-      x: 0.27272728
-      y: 0
-      width: 0.11188811
-      height: 0.16964287
-    collData:
-      vertices: []
-      type: 0
-    paramContainer:
-      m_paramList: []
-    prefabData:
-      prefab: {fileID: 0}
-      offset: {x: 0, y: 0, z: 0}
-      offsetMode: 0
-      showTileWithPrefab: 0
-  - uv:
-      serializedVersion: 2
-      x: 0.3892774
-      y: 0
-      width: 0.14918415
-      height: 0.45982146
-    collData:
-      vertices: []
-      type: 0
-    paramContainer:
-      m_paramList: []
-    prefabData:
-      prefab: {fileID: 0}
-      offset: {x: 0, y: 0, z: 0}
-      offsetMode: 0
-      showTileWithPrefab: 0
-  - uv:
-      serializedVersion: 2
-      x: 0.6060606
-      y: 0.4107143
-      width: 0.10489511
-      height: 0.2589286
-    collData:
-      vertices: []
-      type: 0
-    paramContainer:
-      m_paramList: []
-    prefabData:
-      prefab: {fileID: 0}
-      offset: {x: 0, y: 0, z: 0}
-      offsetMode: 0
-      showTileWithPrefab: 0
-  - uv:
-      serializedVersion: 2
-      x: 0.7762238
-      y: 0.008928572
-      width: 0.22377622
-      height: 0.73214287
-    collData:
-      vertices: []
-      type: 0
-    paramContainer:
-      m_paramList: []
-    prefabData:
-      prefab: {fileID: 0}
-      offset: {x: 0, y: 0, z: 0}
-      offsetMode: 0
-      showTileWithPrefab: 0
-  - uv:
-      serializedVersion: 2
-      x: 0.54195803
-      y: 0
-      width: 0.22377622
-      height: 0.25
-    collData:
-      vertices: []
-      type: 0
-    paramContainer:
-      m_paramList: []
-    prefabData:
-      prefab: {fileID: 0}
-      offset: {x: 0, y: 0, z: 0}
-      offsetMode: 0
-      showTileWithPrefab: 0
-  m_pixelsPerUnit: 32
+  m_pixelsPerUnit: 100
   m_brushGroupNames:
   - Default
   - 
