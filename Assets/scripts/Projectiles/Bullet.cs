@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Bullet : BaseCharacter
 {
+	
+	private enum State { Alive, Dead }
+
+	private State state;
+	
 	[SerializeField]
 	private float speed;
 	// Use this for initialization
@@ -23,8 +28,7 @@ public class Bullet : BaseCharacter
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		
-		if( other.gameObject.tag == "Enemy" )
+		if( other.gameObject.tag == "Enemy"  )
 		{
 			other.enabled = false;	
 			IDestroyable iD = other.GetComponent<IDestroyable>();
