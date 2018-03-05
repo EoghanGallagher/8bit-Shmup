@@ -39,9 +39,7 @@ public class Bullet : BaseCharacter
 		}
 		else if( other.tag == "Terrain" )
 		{
-				Debug.Log( "I hit terrain ...." );
-				Destroy();
-				
+			Destroy();	
 		}
 
 		

@@ -8,6 +8,9 @@ public class ThisEvent : UnityEvent<int>{}
 
 public class EventManager : MonoBehaviour 
 {
+	
+
+	
 	[SerializeField]
 	private Dictionary <string , ThisEvent> eventDictionary;
 
@@ -23,7 +26,6 @@ public class EventManager : MonoBehaviour
 				
 				if( !eventManager )
 				{
-					
 					Debug.Log( "There needs to be one active EventManaget script on a GameObject in your scene" );
 				}
 				else
@@ -45,7 +47,10 @@ public class EventManager : MonoBehaviour
 		}
 	}
 
+	
 
+	
+	//Single Parameter Int
 	public static void StartListening( string eventName , UnityAction<int> listener ) 
 	{
 		ThisEvent thisEvent = null;
@@ -62,6 +67,7 @@ public class EventManager : MonoBehaviour
 		}
 	}
 
+	//Single Parameter Int
 	public static void StopListening( string eventName , UnityAction<int> listener )
 	{
 		if( eventManager == null ) return;
@@ -75,7 +81,7 @@ public class EventManager : MonoBehaviour
 	}
 
 
-
+	//Single Parameter Int
 	public static void TriggerEvent( string eventName , int value )
 	{
 

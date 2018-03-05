@@ -50,14 +50,30 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	public GameObject option2;
 
 
+	void OnEnable()
+	{
+		EventManager.StartListening( "Missile" , ToggleMissile );
+		EventManager.StartListening( "Option1" , ToggleOption1 );
+		EventManager.StartListening( "Option2" , ToggleOption2 );
+	}
+
+	void OnDisable()
+	{
+		EventManager.StopListening( "Missile" , ToggleMissile );
+		EventManager.StopListening( "Option1" , ToggleOption1);
+		EventManager.StopListening( "Option2" , ToggleOption2);
+	}
 	// Use this for initialization
 	private void Start () 
 	{
 
 		observers = new List<IObserver>();
 
-		Register( option1.GetComponent<IObserver>() );
-		Register( option2.GetComponent<IObserver>()  );
+		if( option1.activeSelf )
+			Register( option1.GetComponent<IObserver>() );
+		
+		if( option1.activeSelf )
+			Register( option2.GetComponent<IObserver>()  );
 
 		//Get Attached RigidBody
 		rigidBody2D = GetComponent<Rigidbody2D>();
@@ -74,6 +90,27 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		missileSystem = MissileLauncher.GetComponent<WeaponSystem>();
 
 		
+
+	}
+
+	private void Update()
+	{
+
+		  if (Input.GetKeyDown( KeyCode.M ) )
+		  {
+				EventManager.TriggerEvent( "Missile" , 0 );
+		  }
+
+		  if (Input.GetKeyDown( KeyCode.O ) )
+		  {
+				EventManager.TriggerEvent( "Option1" , 0 );
+		  }
+
+		  if (Input.GetKeyDown( KeyCode.P ) )
+		  {
+				EventManager.TriggerEvent( "Option2" , 0 );
+		  }
+
 
 	}
 	
@@ -103,8 +140,6 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			Fire();
 		}
 
-	
-	
 	}
 
 
@@ -115,7 +150,9 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		if( MissileLauncher.activeSelf )
 			missileSystem.Missile();
 
-		NotifyObserver();
+		if( option1.activeSelf || option2.activeSelf )
+			EventManager.TriggerEvent( "Fire" , 0 );	
+		
 	}
 
 
@@ -188,5 +225,30 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		{
 			observer.OnNotify();
 		}
+	}
+
+
+	public void ToggleMissile( int x )
+	{
+		if( MissileLauncher.activeSelf )
+			MissileLauncher.SetActive( false );
+		else
+			MissileLauncher.SetActive( true );
+	}
+
+	public void ToggleOption1( int x )
+	{
+		if( option1.activeSelf )
+			option1.SetActive( false );
+		else
+			option1.SetActive( true );
+	}
+
+	public void ToggleOption2( int x )
+	{
+		if( option2.activeSelf )
+			option2.SetActive( false );
+		else
+			option2.SetActive( true );
 	}
 }

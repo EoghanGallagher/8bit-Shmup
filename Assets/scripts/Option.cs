@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Option : MonoBehaviour , IObserver
+public class Option : MonoBehaviour 
 {
 
 	[SerializeField]
@@ -25,7 +25,18 @@ public class Option : MonoBehaviour , IObserver
 
 	public GameObject muzzle;
 	private WeaponSystem weaponSystem;
-	
+
+	void OnEnable()
+	{
+		EventManager.StartListening( "Fire" , Fire );
+	}
+
+	void OnDisable()
+	{
+		EventManager.StopListening( "Fire" , Fire );
+	}
+
+
 	void Start () 
 	{
 		
@@ -82,13 +93,9 @@ public class Option : MonoBehaviour , IObserver
 		transform.position = Vector2.MoveTowards( transform.position , desiredPosition, speed * Time.fixedDeltaTime );
 	}
 
-	public void OnNotify()
+	public void Fire( int weaponType )
 	{
-		Fire();
-	}
-
-	public void Fire()
-	{
+		
 		weaponSystem.Bullet();
 
 	}

@@ -28,7 +28,6 @@ public class ScoreManager : MonoBehaviour {
 	
 	public void OnEnable()
 	{
-		Debug.Log( "Listening...................." );
 		EventManager.StartListening( "Score" , UpdateScore );
 	}
 
@@ -46,8 +45,7 @@ public class ScoreManager : MonoBehaviour {
 
 	public void UpdateScore( int score  )
 	{
-		Debug.Log( "Score is working fine....." + score );
-
+	
 		currentScore = int.Parse( scoreTxt.text ); 
 
 		currentScore  = currentScore + score;
