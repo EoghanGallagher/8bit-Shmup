@@ -27,6 +27,7 @@ public class LauncherSpawn : BaseCharacter
 	// Use this for initialization
 	IEnumerator Start () 
 	{
+		ScoreValue = 100;
 		rigidBody2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 
@@ -86,10 +87,9 @@ public class LauncherSpawn : BaseCharacter
 
 	public override void Destroy()
 	{
+		EventManager.TriggerEvent( "Score" , ScoreValue );
 		movementDirection = Vector2.zero;
-		
 		animator.SetTrigger( "death" );
-
 		base.Destroy();
 	}
 

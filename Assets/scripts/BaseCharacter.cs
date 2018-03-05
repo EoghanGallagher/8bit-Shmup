@@ -6,12 +6,13 @@ public class BaseCharacter : MonoBehaviour , IDestroyable
 {
 
 
+	public int ScoreValue { get; set; }
+
 	public Animator animator;
 	
 	public virtual void Destroy()
 	{
-	  Debug.Log( "Base Class Destroy" );
-	  Invoke( "DisableSelf" , 0.5f );
+	 	Invoke( "DisableSelf" , 0.5f );
 	}
 
 	public void DisableSelf()

@@ -7,7 +7,7 @@ public class Fan : BaseCharacter
 
 	
 
-	public int scoreValue = 100;
+	
 	// Use this for initialization
 	private Rigidbody2D rigidbody2d;
 
@@ -28,6 +28,7 @@ public class Fan : BaseCharacter
 	IEnumerator Start()
 	{
 		
+		ScoreValue = 100;
 		animator = GetComponent<Animator>();
 
 		player = GameObject.FindGameObjectWithTag( "Player" ).transform;
@@ -77,10 +78,12 @@ public class Fan : BaseCharacter
 
 	public override void Destroy()
 	{
+		Debug.Log( "Triggering Eventmanager ....." );
+		EventManager.TriggerEvent( "Score" , ScoreValue );
+		
 		movementDirection = Vector2.zero;
-
 		animator.SetTrigger( "death" );
-
+		
 		base.Destroy();
 		
 	}

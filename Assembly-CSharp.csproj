@@ -91,6 +91,8 @@
      <Compile Include="Assets\scripts\Enemies\Launcher\LauncherSpawn.cs" />
      <Compile Include="Assets\scripts\Enemies\Rugal\Rugal.cs" />
      <Compile Include="Assets\scripts\Enemy.cs" />
+     <Compile Include="Assets\scripts\EventManager\EventManager.cs" />
+     <Compile Include="Assets\scripts\EventManager\Tester.cs" />
      <Compile Include="Assets\scripts\GameManager.cs" />
      <Compile Include="Assets\scripts\Interfaces\IDestroyable.cs" />
      <Compile Include="Assets\scripts\Interfaces\IFireable.cs" />

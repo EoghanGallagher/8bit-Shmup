@@ -1,17 +1,68 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
+	
+	private UnityAction scoreListener;
+
+
+	[SerializeField]
+	private Text scoreTxt , hiScoreTxt;
+
+	[SerializeField]
+	private int currentScore;
+	
+	[SerializeField]
+	private int HiScore = 0;
+
+
+
+	public void Awake()
+	{
+		
+	}
+	
+	public void OnEnable()
+	{
+		Debug.Log( "Listening...................." );
+		EventManager.StartListening( "Score" , UpdateScore );
+	}
+
+	public void OnDisable()
+	{
+		EventManager.StopListening( "Score" , UpdateScore );
+	}
 	// Use this for initialization
 	void Start () 
 	{
-		FindObjectOfType<Fan>().deathEvent += OnEnemyDeath;
+	
 	}
 	
-	public void OnEnemyDeath( int score )
+	
+
+	public void UpdateScore( int score  )
 	{
-		Debug.Log( "Enemy Died it is worth : " + score  );
+		Debug.Log( "Score is working fine....." + score );
+
+		currentScore = int.Parse( scoreTxt.text ); 
+
+		currentScore  = currentScore + score;
+
+		scoreTxt.text = currentScore.ToString( "0000000" );
+
+		UpdateHiScore();
+	 
+	}
+
+	private void  UpdateHiScore()
+	{
+		if( currentScore > HiScore )
+		{
+			hiScoreTxt.text = currentScore.ToString( "0000000" );
+		}
 	}
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Launcher : MonoBehaviour , IDestroyable
 {
 
+	private int ScoreValue;
+
 	[SerializeField]
 	private bool isFlipped;
 	private Animator animator;
@@ -23,12 +25,14 @@ public class Launcher : MonoBehaviour , IDestroyable
 	private Sprite launcherEmpty ; 
 	void Start () 
 	{
+		ScoreValue = 200;
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	
 	public void Destroy()
 	{
+		EventManager.TriggerEvent( "Score" , ScoreValue );
 		animator.SetTrigger( "death" );
 		Invoke( "DisableSelf" , 0.5f );
 	}
@@ -61,21 +65,20 @@ public class Launcher : MonoBehaviour , IDestroyable
        
 		if( other.tag == "Enemy" )
 		{
-				spawnCount ++;
+			spawnCount ++;
 
-				if( isFlipped )
-				{
-					LauncherSpawn spawn = other.GetComponent<LauncherSpawn>();
-					spawn.SetFlipped( true );
-				}
+			if( isFlipped )
+			{
+				LauncherSpawn spawn = other.GetComponent<LauncherSpawn>();
+				spawn.SetFlipped( true );
+			}
 
 		}
 
 		if( spawnCount == spawnLimit )
 		{
-				Debug.Log( "Changing Launcher Sprite" );
-				animator.SetTrigger( "empty" );
-				spawnCount = 0;
+			animator.SetTrigger( "empty" );
+			spawnCount = 0;
 		}
     }
 	

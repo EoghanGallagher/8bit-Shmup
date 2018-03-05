@@ -20,7 +20,7 @@ public class Garun : BaseCharacter
 	// Use this for initialization
 	void Start () 
 	{
-		
+		ScoreValue  = 100;
 		rigidbody2d = GetComponent< Rigidbody2D >();
 		tempPosition = transform.position;
 		animator = GetComponent<Animator>( );
@@ -37,6 +37,7 @@ public class Garun : BaseCharacter
 
 	public override void Destroy()
 	{
+		EventManager.TriggerEvent( "Score" , ScoreValue );
 		animator.SetTrigger( "death" );
 		base.Destroy();
 	}
