@@ -96,23 +96,30 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	private void Update()
 	{
 
-		  if (Input.GetKeyDown( KeyCode.M ) )
-		  {
-				EventManager.TriggerEvent( "Missile" , 0 );
-		  }
+		if (Input.GetKeyDown( KeyCode.M ) )
+		{
+			EventManager.TriggerEvent( "Missile" , 0 );
+		}
 
-		  if (Input.GetKeyDown( KeyCode.O ) )
-		  {
-				EventManager.TriggerEvent( "Option1" , 0 );
-		  }
+		if (Input.GetKeyDown( KeyCode.O ) )
+		{
+			EventManager.TriggerEvent( "Option1" , 0 );
+		}
 
-		  if (Input.GetKeyDown( KeyCode.P ) )
-		  {
-				EventManager.TriggerEvent( "Option2" , 0 );
-		  }
+		if (Input.GetKeyDown( KeyCode.P ) )
+		{
+			EventManager.TriggerEvent( "Option2" , 0 );
+		}
+
+		if( Input.GetKeyDown( KeyCode.C ) )
+		{
+			EventManager.TriggerEvent( "ActivatePowerUp" , 0 );
+		}
 
 
 	}
+
+
 	
 	private void FixedUpdate()
 	{

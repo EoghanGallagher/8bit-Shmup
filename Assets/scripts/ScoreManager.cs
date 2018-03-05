@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour {
 	[SerializeField]
 	private int HiScore = 0;
 
-
+	
 
 	public void Awake()
 	{

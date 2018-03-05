@@ -11,7 +11,7 @@ public class PowerUp : MonoBehaviour
         
 		if( other.gameObject.name == "PlayerShip" )
 		{
-			Debug.Log( "Hit by Player Ship" );
+			EventManager.TriggerEvent( "IncrementPowerUpCount", 0 );
 			gameObject.SetActive( false );
 		}
 	
