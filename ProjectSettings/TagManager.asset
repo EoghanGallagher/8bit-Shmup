@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Bullet
   - Ground
+  - Anchor
   layers:
   - Default
   - TransparentFX

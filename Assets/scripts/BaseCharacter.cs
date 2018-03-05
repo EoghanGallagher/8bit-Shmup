@@ -5,9 +5,9 @@ using UnityEngine;
 public class BaseCharacter : MonoBehaviour , IDestroyable
 {
 
+
 	public Animator animator;
 	
-
 	public virtual void Destroy()
 	{
 	  Debug.Log( "Base Class Destroy" );

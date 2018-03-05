@@ -5,6 +5,9 @@ using UnityEngine;
 public class Fan : BaseCharacter
 {
 
+	
+
+	public int scoreValue = 100;
 	// Use this for initialization
 	private Rigidbody2D rigidbody2d;
 
@@ -74,7 +77,6 @@ public class Fan : BaseCharacter
 
 	public override void Destroy()
 	{
-	
 		movementDirection = Vector2.zero;
 
 		animator.SetTrigger( "death" );

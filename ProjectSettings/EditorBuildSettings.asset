@@ -11,3 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/level_1.unity
     guid: 4731578ba51854e0082814abdd2499ce
+  - enabled: 1
+    path: Assets/scenes/level_2.unity
+    guid: a83e82abe819647199fd4c13a46c24c5
+  - enabled: 1
+    path: Assets/scenes/MidBossScene.unity
+    guid: 91d6783807b1043c1b3d405a566c8a04

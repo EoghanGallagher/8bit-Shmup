@@ -54,8 +54,8 @@ public class WeaponSystem : MonoBehaviour
 
 		yield return new WaitForSeconds( 1.0f );
 		PoolManager.instance.SpawnFromPool( "Missile" , transform.position, transform.rotation );
-		yield return new WaitForSeconds( 0.25f );
-		PoolManager.instance.SpawnFromPool( "Missile" , transform.position, transform.rotation );
+		//yield return new WaitForSeconds( 0.25f );
+		//PoolManager.instance.SpawnFromPool( "Missile" , transform.position, transform.rotation );
 
 		isLoadMissileExecuting = false;
 
