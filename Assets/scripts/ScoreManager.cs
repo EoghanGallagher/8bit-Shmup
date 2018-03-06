@@ -38,7 +38,9 @@ public class ScoreManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-	
+
+		int hi = 100000;
+		hiScoreTxt.text = hi.ToString( "0000000" );
 	}
 	
 	
@@ -62,5 +64,6 @@ public class ScoreManager : MonoBehaviour {
 		{
 			hiScoreTxt.text = currentScore.ToString( "0000000" );
 		}
+
 	}
 }

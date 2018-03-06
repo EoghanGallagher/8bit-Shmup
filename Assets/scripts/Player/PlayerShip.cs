@@ -158,7 +158,12 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			missileSystem.Missile();
 
 		if( option1.activeSelf || option2.activeSelf )
-			EventManager.TriggerEvent( "Fire" , 0 );	
+		{
+			if( MissileLauncher.activeSelf )
+				EventManager.TriggerEvent( "Fire" , 1 );
+			else
+				EventManager.TriggerEvent( "Fire" , 0 );		
+		}	
 		
 	}
 
@@ -241,6 +246,8 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			MissileLauncher.SetActive( false );
 		else
 			MissileLauncher.SetActive( true );
+
+		EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
 	}
 
 	public void ToggleOption1( int x )

@@ -29,11 +29,14 @@ public class Option : MonoBehaviour
 	void OnEnable()
 	{
 		EventManager.StartListening( "Fire" , Fire );
+		EventManager.StartListening( "Missile" , ToggleMissile );
+		
 	}
 
 	void OnDisable()
 	{
 		EventManager.StopListening( "Fire" , Fire );
+		EventManager.StopListening( "Missile" , ToggleMissile );
 	}
 
 
@@ -93,10 +96,22 @@ public class Option : MonoBehaviour
 		transform.position = Vector2.MoveTowards( transform.position , desiredPosition, speed * Time.fixedDeltaTime );
 	}
 
+
+	private bool isMissileActive = false;
+	public void ToggleMissile( int x )
+	{
+		if( !isMissileActive  )
+			isMissileActive = true;
+		else
+			isMissileActive = false;
+	}
+
 	public void Fire( int weaponType )
 	{
-		
 		weaponSystem.Bullet();
+
+		if( weaponType == 1 )
+			weaponSystem.Missile();
 
 	}
 }
