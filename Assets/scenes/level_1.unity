@@ -2798,19 +2798,7 @@ Prefab:
       propertyPath: shipAnchor
       value: 
       objectReference: {fileID: 143055469}
-    - target: {fileID: 1213861939517010, guid: 740bff08679964652acbe5b2eadfb5ea, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1434123055777646, guid: 740bff08679964652acbe5b2eadfb5ea, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1200063949977196, guid: 740bff08679964652acbe5b2eadfb5ea, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1501062147911618, guid: 740bff08679964652acbe5b2eadfb5ea, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

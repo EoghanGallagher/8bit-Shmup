@@ -55,6 +55,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		EventManager.StartListening( "Missile" , ToggleMissile );
 		EventManager.StartListening( "Option1" , ToggleOption1 );
 		EventManager.StartListening( "Option2" , ToggleOption2 );
+		EventManager.StartListening( "SpeedUp" , SpeedUp );
 	}
 
 	void OnDisable()
@@ -62,6 +63,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		EventManager.StopListening( "Missile" , ToggleMissile );
 		EventManager.StopListening( "Option1" , ToggleOption1);
 		EventManager.StopListening( "Option2" , ToggleOption2);
+		EventManager.StopListening( "SpeedUp" , SpeedUp );
 	}
 	// Use this for initialization
 	private void Start () 
@@ -119,12 +121,20 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 	}
 
-
-	
+	[SerializeField]
+	private bool isAxisRaw = false;
 	private void FixedUpdate()
 	{
-		horiz = Input.GetAxisRaw( "Horizontal" );
-		vert = Input.GetAxisRaw( "Vertical" );
+		if( isAxisRaw )
+		{
+			horiz = Input.GetAxisRaw( "Horizontal" );
+			vert = Input.GetAxisRaw( "Vertical" );
+		}
+		else
+		{
+			horiz = Input.GetAxis( "Horizontal" );
+			vert = Input.GetAxis( "Vertical" );
+		}
 
 		rigidBody2D.velocity = new Vector2( horiz  , vert ) * speed ;
 
@@ -190,7 +200,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	private void RestrictShipMovement()
 	{
 		Vector3 pos = Camera.main.WorldToViewportPoint ( transform.position );
-         pos.x = Mathf.Clamp( pos.x , 0.1f , 0.9f );
+         pos.x = Mathf.Clamp( pos.x , 0.05f , 0.95f );
          pos.y = Mathf.Clamp( pos.y , 0.15f , 0.95f );
          transform.position = Camera.main.ViewportToWorldPoint( pos );
 	}
@@ -264,5 +274,11 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			option2.SetActive( false );
 		else
 			option2.SetActive( true );
+	}
+
+	public void SpeedUp( int x )
+	{
+		speed += x;
+		EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
 	}
 }

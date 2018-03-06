@@ -85,7 +85,7 @@ public class PowerUpManager : MonoBehaviour
 			case 1:
 
 				Debug.Log( "Activating SpeedUp" );
-				EventManager.TriggerEvent( "SpeedUp" , 0 );
+				EventManager.TriggerEvent( "SpeedUp" , 1 );
 				SetPowerUpToInactive();
 				
 
