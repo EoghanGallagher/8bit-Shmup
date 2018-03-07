@@ -9,6 +9,8 @@ public class PowerUpSprite
 	public Sprite activeSprite;
 	public Sprite inactiveSprite;
 	public SpriteRenderer spriteRenderer;
+	public int activeCount;
+	public int maxActiveCount;
 }
 
 
@@ -17,6 +19,8 @@ public class PowerUpManager : MonoBehaviour
 {
 
 	public List<PowerUpSprite> powerUps;
+
+	public Sprite defaultSprite;
 
 	[SerializeField]
 	private static int powerUpCount;
@@ -61,75 +65,163 @@ public class PowerUpManager : MonoBehaviour
 	}
 	
 	
+
+	private static int speedUpCount;
+	private static int missileCount;
+	
+	
+	/* 
+		LOOP THROUGH POWER UP MENU
+		CHECK IF EACH ITEM HAS A POWERUP ACTIVE
+		ALSO CHECK IF NUM OF THAT TYPE OF POWERUP IS MAXED
+		SET THE CURRENTLY SELECTED POWERUP SPRITE TO ACTIVE
+		IF MAXED REPLACE SPRITE WITH DEFAULT( BLANK ) ACTIVE SPRITE
+	 */
+
 	private void SetActivePowerUpSprite( )
 	{
 		
-		SetPowerUpToInactive();
+		Sprite sprite = null;
+
+		PowerUpSprite currentPowerUp = powerUps[ powerUpCount - 1 ];
+
 		
-		if( powerUpCount < 7 )
-			powerUps[ powerUpCount -1 ].spriteRenderer.sprite = powerUps[ powerUpCount - 1 ].activeSprite;
-		else
+		//RESET POWER UP METER ITEMS TO DEFAULT
+		SetPowerUpToInactive();
+
+
+		if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 		{
-			powerUpCount = 0;
-			//powerUps[ powerUpCount -1 ].spriteRenderer.sprite = powerUps[ powerUpCount - 1 ].activeSprite;
+			sprite = currentPowerUp.activeSprite;
+			
+		}
+		else
+		{ 
+			sprite = defaultSprite;
 		}
 
+		powerUps[ powerUpCount -1 ].spriteRenderer.sprite = sprite;
+
+		if( powerUpCount == powerUps.Count )
+		{
+			powerUpCount = 0;
+		}
+		
+	
 	}
 
+	/* 
+		Activate the slected powerup 
+	*/
 	private void ActivatePowerUp( int x )
 	{
+
+		if( powerUpCount == 0 )
+		{
+			return;
+		}
+
 		Debug.Log( "Activating PowerUp" );
+
+		PowerUpSprite currentPowerUp = powerUps[ powerUpCount - 1 ];
 
 		switch( powerUpCount )
 		{
 			case 1:
 
+				//Activate SpeedUp
 				Debug.Log( "Activating SpeedUp" );
-				EventManager.TriggerEvent( "SpeedUp" , 1 );
-				SetPowerUpToInactive();
 				
-
+				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
+				{
+					EventManager.TriggerEvent( "SpeedUp" , 1 );
+					SetPowerUpToInactive();
+				}
+						
 			break;
 
 			case 2:
 
+				//Activate Missile
 				Debug.Log( "Activating Missile" );
-				EventManager.TriggerEvent( "Missile" , 0 );
-				SetPowerUpToInactive();
 				
-
+				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
+				{
+					EventManager.TriggerEvent( "Missile" , 0 );
+					SetPowerUpToInactive();
+				}
+				else
+				{
+					Debug.Log( "Missile Maxed" );
+				}
+				
 			break;
 
 			case 3:
 
+				//Activate Double
 				Debug.Log( "Activating Double" );
-				EventManager.TriggerEvent( "Double" , 0 );
-				SetPowerUpToInactive();
 				
+				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
+				{
+					EventManager.TriggerEvent( "Double" , 0 );
+					SetPowerUpToInactive();
+				}
 
 			break;
 
 			case 4:
 				
+				//Activate Lazer
 				Debug.Log( "Activating Lazer" );
-				EventManager.TriggerEvent( "Lazer" , 0 );
-				SetPowerUpToInactive();
+				
+				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
+				{
+					EventManager.TriggerEvent( "Lazer" , 0 );
+					SetPowerUpToInactive();
+				}
+			
 			break;
 
 			case 5:
 
+				//Activate Option. 
+				//Max Option count is 2
 				Debug.Log( "Activating Option" );
-				EventManager.TriggerEvent( "Option1" , 0 );
+				
+				if( currentPowerUp.activeCount == 0 )
+					EventManager.TriggerEvent( "Option1" , 0 );
+				
+				if( currentPowerUp.activeCount == 1 )
+					EventManager.TriggerEvent( "Option2" , 0 );
+
 				SetPowerUpToInactive();
+				
+			
 			break;
 
 			case 6:
 			
+				//Activate Special
 				Debug.Log( "Activating Special" );
-				EventManager.TriggerEvent( "Special" , 0 );
-				SetPowerUpToInactive();	
+				
+				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
+				{
+					EventManager.TriggerEvent( "Special" , 0 );
+					SetPowerUpToInactive();	
+				}
+			
 			break;
+
+			default:
+
+				Debug.Log( "No Power Up Selected" );
+			
+			break;
+
 		}
+
+		currentPowerUp.activeCount ++;
 	}
 	
 
