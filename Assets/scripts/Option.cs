@@ -24,27 +24,35 @@ public class Option : MonoBehaviour
 
 
 	public GameObject muzzle;
+	public GameObject missileMuzzle;
+	
 	private WeaponSystem weaponSystem;
+	private WeaponSystem missileWeaponSystem;
+
+
+	private bool isLaserActive = false;
 
 	void OnEnable()
 	{
-		EventManager.StartListening( "Fire" , Fire );
-		EventManager.StartListening( "Missile" , ToggleMissile );
-		
+		EventManager.StartListening( "FireBullet" , FireBullet );
+		EventManager.StartListening( "FireMissile" , FireMissile );
+		EventManager.StartListening( "FireLaser" , FireLaser );
+
 	}
 
 	void OnDisable()
 	{
-		EventManager.StopListening( "Fire" , Fire );
-		EventManager.StopListening( "Missile" , ToggleMissile );
+		EventManager.StopListening( "FireBullet" , FireBullet);
+		EventManager.StopListening( "FireMissile" , FireMissile );
+		EventManager.StopListening( "FireLaser" , FireLaser );
 	}
 
 
 	void Start () 
 	{
-		
 		target = GameObject.FindGameObjectWithTag( "Player" ).transform;
 		weaponSystem = muzzle.GetComponent<WeaponSystem>();
+		missileWeaponSystem = missileMuzzle.GetComponent<WeaponSystem>();
 
 	}
 	
@@ -97,21 +105,25 @@ public class Option : MonoBehaviour
 	}
 
 
-	private bool isMissileActive = false;
-	public void ToggleMissile( int x )
-	{
-		if( !isMissileActive  )
-			isMissileActive = true;
-		else
-			isMissileActive = false;
-	}
-
-	public void Fire( int weaponType )
+	private void FireBullet( int x )
 	{
 		weaponSystem.Bullet();
-
-		if( weaponType == 1 )
-			weaponSystem.Missile();
-
 	}
+
+	private void FireMissile( int x )
+	{
+		missileWeaponSystem.Missile();
+	}
+
+	private void FireLaser( int x )
+	{
+		weaponSystem.Laser();
+	}
+
+
+		
+		
+
+	
+
 }

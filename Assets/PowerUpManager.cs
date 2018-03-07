@@ -121,8 +121,6 @@ public class PowerUpManager : MonoBehaviour
 			return;
 		}
 
-		Debug.Log( "Activating PowerUp" );
-
 		PowerUpSprite currentPowerUp = powerUps[ powerUpCount - 1 ];
 
 		switch( powerUpCount )
@@ -134,7 +132,8 @@ public class PowerUpManager : MonoBehaviour
 				
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
-					EventManager.TriggerEvent( "SpeedUp" , 1 );
+					EventManager.TriggerEvent( "SpeedUp" , 1 );	
+					ResetPowerUpCount( 0 );
 					SetPowerUpToInactive();
 				}
 						
@@ -148,7 +147,8 @@ public class PowerUpManager : MonoBehaviour
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
 					EventManager.TriggerEvent( "Missile" , 0 );
-					SetPowerUpToInactive();
+					ResetPowerUpCount( 0 );	
+					SetPowerUpToInactive();				
 				}
 				else
 				{
@@ -164,8 +164,7 @@ public class PowerUpManager : MonoBehaviour
 				
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
-					EventManager.TriggerEvent( "Double" , 0 );
-					SetPowerUpToInactive();
+					EventManager.TriggerEvent( "Double" , 0 );					
 				}
 
 			break;
@@ -177,9 +176,11 @@ public class PowerUpManager : MonoBehaviour
 				
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
-					EventManager.TriggerEvent( "Lazer" , 0 );
-					SetPowerUpToInactive();
+					EventManager.TriggerEvent( "Lazer" , 0 );			
 				}
+
+				ResetPowerUpCount( 0 );	
+				SetPowerUpToInactive();	
 			
 			break;
 
@@ -195,9 +196,9 @@ public class PowerUpManager : MonoBehaviour
 				if( currentPowerUp.activeCount == 1 )
 					EventManager.TriggerEvent( "Option2" , 0 );
 
-				SetPowerUpToInactive();
-				
-			
+				ResetPowerUpCount( 0 );	
+				SetPowerUpToInactive();			
+
 			break;
 
 			case 6:
@@ -207,8 +208,7 @@ public class PowerUpManager : MonoBehaviour
 				
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
-					EventManager.TriggerEvent( "Special" , 0 );
-					SetPowerUpToInactive();	
+					EventManager.TriggerEvent( "Special" , 0 );	
 				}
 			
 			break;
@@ -221,6 +221,7 @@ public class PowerUpManager : MonoBehaviour
 
 		}
 
+		
 		currentPowerUp.activeCount ++;
 	}
 	

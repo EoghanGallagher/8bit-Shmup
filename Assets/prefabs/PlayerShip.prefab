@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1213861939517010}
   m_IsPrefabParent: 1
+--- !u!1 &1005871955705290
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4157818564888410}
+  - component: {fileID: 114948615078965004}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1008227987498100
 GameObject:
   m_ObjectHideFlags: 1
@@ -20,6 +36,22 @@ GameObject:
   m_Component:
   - component: {fileID: 4133947699756444}
   - component: {fileID: 114919272672845306}
+  m_Layer: 0
+  m_Name: MissileMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1064598033117166
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4057297482070052}
+  - component: {fileID: 114326069468387266}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -44,7 +76,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1213861939517010
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,12 +157,25 @@ GameObject:
   - component: {fileID: 4919177518839938}
   - component: {fileID: 114365998174043740}
   m_Layer: 0
-  m_Name: Muzzle
+  m_Name: MissileMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4057297482070052
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064598033117166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.278, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4942956367735200}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4119066616317088
 Transform:
   m_ObjectHideFlags: 1
@@ -138,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1352848265570550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5658, y: 0, z: 0}
+  m_LocalPosition: {x: 0.579, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4314377300802828}
@@ -150,11 +195,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008227987498100}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.241, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.019, y: -0.152, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4942956367735200}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4157818564888410
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005871955705290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.281, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4523801714141474}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4166917495623762
@@ -197,6 +255,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4157818564888410}
   - {fileID: 4919177518839938}
   m_Father: {fileID: 4314377300802828}
   m_RootOrder: 1
@@ -207,12 +266,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1941597996390978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.241, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.004, y: -0.141, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4523801714141474}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4942956367735200
 Transform:
@@ -224,6 +283,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4057297482070052}
   - {fileID: 4133947699756444}
   m_Father: {fileID: 4314377300802828}
   m_RootOrder: 2
@@ -389,6 +449,7 @@ MonoBehaviour:
   MissileLauncher: {fileID: 1501062147911618}
   option1: {fileID: 1434123055777646}
   option2: {fileID: 1200063949977196}
+  isAxisRaw: 0
 --- !u!114 &114299600118430668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -405,7 +466,22 @@ MonoBehaviour:
   horiz: 0
   vert: 0
   offSetAmt: 1.5
-  muzzle: {fileID: 1008227987498100}
+  muzzle: {fileID: 1064598033117166}
+  missileMuzzle: {fileID: 1008227987498100}
+--- !u!114 &114326069468387266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064598033117166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTime: 0
+  missileDelta: 1
+  missileNextFire: 1
 --- !u!114 &114365998174043740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -436,7 +512,8 @@ MonoBehaviour:
   horiz: 0
   vert: 0
   offSetAmt: 0.75
-  muzzle: {fileID: 1941597996390978}
+  muzzle: {fileID: 1005871955705290}
+  missileMuzzle: {fileID: 1941597996390978}
 --- !u!114 &114896891384282228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -471,6 +548,20 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1352848265570550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTime: 0
+  missileDelta: 1
+  missileNextFire: 1
+--- !u!114 &114948615078965004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005871955705290}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}

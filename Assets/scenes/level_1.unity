@@ -2846,7 +2846,11 @@ Prefab:
       objectReference: {fileID: 143055469}
     - target: {fileID: 1434123055777646, guid: 740bff08679964652acbe5b2eadfb5ea, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941597996390978, guid: 740bff08679964652acbe5b2eadfb5ea, type: 2}
+      propertyPath: m_Name
+      value: BulletMuzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 740bff08679964652acbe5b2eadfb5ea, type: 2}
@@ -7532,6 +7536,52 @@ Transform:
   m_PrefabParentObject: {fileID: 4619350987614022, guid: c340decc758694334b7f4c6df3a75df9,
     type: 2}
   m_PrefabInternal: {fileID: 1260668172}
+--- !u!1 &1265173615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1941597996390978, guid: 740bff08679964652acbe5b2eadfb5ea,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1265173616}
+  - component: {fileID: 1265173617}
+  m_Layer: 0
+  m_Name: MissileMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1265173616
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4919177518839938, guid: 740bff08679964652acbe5b2eadfb5ea,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1265173615}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1348670075}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1265173617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114365998174043740, guid: 740bff08679964652acbe5b2eadfb5ea,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1265173615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTime: 0
+  missileDelta: 1
+  missileNextFire: 1
 --- !u!1 &1265978737
 GameObject:
   m_ObjectHideFlags: 0
@@ -8103,6 +8153,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3be9238bd4d90454bb1de21cc8c18084, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1348670075 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4523801714141474, guid: 740bff08679964652acbe5b2eadfb5ea,
+    type: 2}
+  m_PrefabInternal: {fileID: 518265883}
 --- !u!1 &1352169147
 GameObject:
   m_ObjectHideFlags: 0
@@ -8498,6 +8553,9 @@ MonoBehaviour:
   - tag: LauncherSpawn
     prefab: {fileID: 1598932599373458, guid: ea238e031d6ad4102936e5c1727319a6, type: 2}
     size: 10
+  - tag: Laser
+    prefab: {fileID: 1973334855550888, guid: 1072d609849f34305ad989f6f6d75f04, type: 2}
+    size: 40
 --- !u!4 &1427069405
 Transform:
   m_ObjectHideFlags: 0

@@ -50,8 +50,12 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	public GameObject option2;
 
 
+	private bool isLaserActive = false;
+
+
 	void OnEnable()
 	{
+		EventManager.StartListening( "Lazer" , ToggleLazer );
 		EventManager.StartListening( "Missile" , ToggleMissile );
 		EventManager.StartListening( "Option1" , ToggleOption1 );
 		EventManager.StartListening( "Option2" , ToggleOption2 );
@@ -60,6 +64,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 	void OnDisable()
 	{
+		EventManager.StopListening( "Lazer" , ToggleLazer );
 		EventManager.StopListening( "Missile" , ToggleMissile );
 		EventManager.StopListening( "Option1" , ToggleOption1);
 		EventManager.StopListening( "Option2" , ToggleOption2);
@@ -162,18 +167,26 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 	public void Fire()
 	{
-		weaponSystem.Bullet();
-
-		if( MissileLauncher.activeSelf )
-			missileSystem.Missile();
-
-		if( option1.activeSelf || option2.activeSelf )
+		
+		if( isLaserActive )
 		{
-			if( MissileLauncher.activeSelf )
-				EventManager.TriggerEvent( "Fire" , 1 );
-			else
-				EventManager.TriggerEvent( "Fire" , 0 );		
-		}	
+			weaponSystem.Laser();
+			EventManager.TriggerEvent( "FireLaser" , 0 );
+		}
+		else
+			weaponSystem.Bullet();
+			EventManager.TriggerEvent( "FireBullet" , 0 );
+
+		
+		if( MissileLauncher.activeSelf )
+		{
+			missileSystem.Missile();
+			EventManager.TriggerEvent( "FireMissile" , 0 );
+		}
+
+		
+			
+			
 		
 	}
 
@@ -214,6 +227,17 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	//Player Death Animation and Cleanup
 	private IEnumerator PlayerDeath()
 	{
+	
+		if( option1.activeSelf )
+		{
+			option1.SetActive( false );
+		}
+
+		if( option2.activeSelf )
+		{
+			option2.SetActive( false );
+		}
+
 		animator.SetTrigger( "shipExplodes" );
 		yield return new WaitForSeconds( 1.0f );
 		gameObject.SetActive( false );
@@ -249,7 +273,6 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		}
 	}
 
-
 	public void ToggleMissile( int x )
 	{
 		if( MissileLauncher.activeSelf )
@@ -257,7 +280,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		else
 			MissileLauncher.SetActive( true );
 
-		EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
+		//EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
 	}
 
 	public void ToggleOption1( int x )
@@ -276,9 +299,21 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			option2.SetActive( true );
 	}
 
+	public void ToggleLazer( int x )
+	{
+		if( isLaserActive )
+		{
+			isLaserActive = false;
+		}
+		else
+		{
+			isLaserActive = true;
+		}
+	}
+
 	public void SpeedUp( int x )
 	{
 		speed += x;
-		EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
+		//EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
 	}
 }
