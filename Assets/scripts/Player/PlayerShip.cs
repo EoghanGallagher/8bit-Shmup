@@ -228,7 +228,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	private IEnumerator PlayerDeath()
 	{
 	
-		if( option1.activeSelf )
+	if( option1.activeSelf )
 		{
 			option1.SetActive( false );
 		}
