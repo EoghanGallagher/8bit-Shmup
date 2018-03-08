@@ -36,10 +36,10 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
     private float nextFire = 0.2F;
 
-	private WeaponSystem weaponSystem , missileSystem;
+	private WeaponSystem weaponSystem , missileSystem , angledWeaponSystem;
 
 	[SerializeField]
-	private GameObject playerShipMuzzle , MissileLauncher;
+	private GameObject playerShipMuzzle , MissileLauncher , angledMuzzle;
 
 	
 
@@ -51,6 +51,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 
 	private bool isLaserActive = false;
+	private bool isAngledWeaponActive = false;
 
 
 	void OnEnable()
@@ -60,6 +61,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		EventManager.StartListening( "Option1" , ToggleOption1 );
 		EventManager.StartListening( "Option2" , ToggleOption2 );
 		EventManager.StartListening( "SpeedUp" , SpeedUp );
+		EventManager.StartListening( "Double" , ToggleDouble );
 	}
 
 	void OnDisable()
@@ -69,6 +71,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		EventManager.StopListening( "Option1" , ToggleOption1);
 		EventManager.StopListening( "Option2" , ToggleOption2);
 		EventManager.StopListening( "SpeedUp" , SpeedUp );
+		EventManager.StopListening( "Double" , ToggleDouble );
 	}
 	// Use this for initialization
 	private void Start () 
@@ -96,7 +99,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 		missileSystem = MissileLauncher.GetComponent<WeaponSystem>();
 
-		
+		angledWeaponSystem = angledMuzzle.GetComponent<WeaponSystem>();
 
 	}
 
@@ -174,8 +177,11 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			EventManager.TriggerEvent( "FireLaser" , 0 );
 		}
 		else
+		{
 			weaponSystem.Bullet();
 			EventManager.TriggerEvent( "FireBullet" , 0 );
+		}
+	
 
 		
 		if( MissileLauncher.activeSelf )
@@ -184,10 +190,12 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			EventManager.TriggerEvent( "FireMissile" , 0 );
 		}
 
-		
-			
-			
-		
+
+		if( angledMuzzle.activeSelf && !isLaserActive )
+		{
+			angledWeaponSystem.AngledBullet();
+		}
+	
 	}
 
 
@@ -301,14 +309,36 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 	public void ToggleLazer( int x )
 	{
-		if( isLaserActive )
+		if( x == 0 )
 		{
 			isLaserActive = false;
 		}
 		else
 		{
 			isLaserActive = true;
+			EventManager.TriggerEvent( "DoubleStatus" , 0 );
+		
 		}
+	}
+
+	public void ToggleDouble( int x )
+	{
+		
+		isLaserActive = false;
+
+		
+		if( x == 0 )
+		{
+			angledMuzzle.SetActive( false);	
+				
+		}
+		else
+		{
+			angledMuzzle.SetActive( true );		
+		}
+			
+		
+
 	}
 
 	public void SpeedUp( int x )

@@ -66,7 +66,7 @@ public class PoolManager : MonoBehaviour
 
 		objToSpawn.SetActive( true );
 		objToSpawn.transform.position = position;
-		objToSpawn.transform.rotation = rotation;
+		//objToSpawn.transform.rotation = rotation;
 
 		poolDictionary[tag].Enqueue( objToSpawn );
 

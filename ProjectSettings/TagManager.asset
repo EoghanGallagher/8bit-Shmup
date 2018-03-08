@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Ground
   - Anchor
+  - SpawnTrigger
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rugal : BaseCharacter
+public class Rugal : BaseCharacter , IDestroyable
 {
 
 	private Transform target;
@@ -44,7 +44,6 @@ public class Rugal : BaseCharacter
 	{	
 		Move();		 
 	}
-
 
 	private void  Move()
 	{

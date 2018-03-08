@@ -31,6 +31,7 @@ public class PowerUpManager : MonoBehaviour
 		EventManager.StartListening( "IncrementPowerUpCount" , IncrementPowerUpCount );
 		EventManager.StartListening( "ActivatePowerUp" , ActivatePowerUp );
 		EventManager.StartListening( "ResetPowerUpCount" , ResetPowerUpCount );
+		EventManager.StartListening( "DoubleStatus" , DoubleStatus  );
 	}
 
 	private void OnDisable()
@@ -38,6 +39,7 @@ public class PowerUpManager : MonoBehaviour
 		EventManager.StopListening( "IncrementPowerUpCount" , IncrementPowerUpCount );
 		EventManager.StopListening( "ActivatePowerUp" , ActivatePowerUp );
 		EventManager.StopListening( "ResetPowerUpCount" , ResetPowerUpCount );
+		EventManager.StopListening( "DoubleStatus" , DoubleStatus  );
 	}
 	
 
@@ -63,7 +65,6 @@ public class PowerUpManager : MonoBehaviour
 			p.spriteRenderer.sprite = p.inactiveSprite;
 		}
 	}
-	
 	
 
 	private static int speedUpCount;
@@ -161,11 +162,29 @@ public class PowerUpManager : MonoBehaviour
 
 				//Activate Double
 				Debug.Log( "Activating Double" );
-				
+
+
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
-					EventManager.TriggerEvent( "Double" , 0 );					
+					if( currentPowerUp.activeCount  == 0 )
+					{
+						Debug.Log( "Activating Muzzle for Double...." );	
+						EventManager.TriggerEvent( "Double" , 0 );
+					}
+					else if( currentPowerUp.activeCount == 1 )
+					{
+						Debug.Log( "Activating Angled Muzzle for Double...." );
+						EventManager.TriggerEvent( "Double" , 1 );	
+					}
+
+					SetPowerUpToInactive();	
+					ResetPowerUpCount( 0 );		
 				}
+				else
+				{
+					Debug.Log( "Double is maxed out ..." );
+				}
+
 
 			break;
 
@@ -173,14 +192,24 @@ public class PowerUpManager : MonoBehaviour
 				
 				//Activate Lazer
 				Debug.Log( "Activating Lazer" );
-				
+
+				//if lazer is not active then bullet must be
+				//so disable bullet
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
-					EventManager.TriggerEvent( "Lazer" , 0 );			
+					EventManager.TriggerEvent( "Double" , 0 );
+					EventManager.TriggerEvent( "Lazer" , 1 );
+
+					ResetPowerUpCount( 0 );	
+					SetPowerUpToInactive();			
+				}
+				else
+				{
+					Debug.Log( "Laser is maxed out" );
 				}
 
-				ResetPowerUpCount( 0 );	
-				SetPowerUpToInactive();	
+
+				
 			
 			break;
 
@@ -221,9 +250,37 @@ public class PowerUpManager : MonoBehaviour
 
 		}
 
-		
 		currentPowerUp.activeCount ++;
 	}
+
+
+	private static int doubleCount = 0;
+	private void DoubleStatus( int status )
+	{
+		string name = "Double";
+		
+		foreach( PowerUpSprite p in powerUps )
+		{
+			if( p.name == name )
+			{
+				Debug.Log( "Resetting  " + p.name + " Count" );
+				p.activeCount = 0;
+			}
+		}
+	}
+
+
+	private void DisableAllPowerups()
+	{
+		foreach( PowerUpSprite p in powerUps )
+		{
+			p.activeCount = 0;
+		}
+
+		EventManager.TriggerEvent( "Double" , 0 );
+	}
+
+
 	
 
 }

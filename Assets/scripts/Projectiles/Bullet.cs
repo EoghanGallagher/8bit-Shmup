@@ -7,6 +7,8 @@ public class Bullet : BaseCharacter
 	
 	private enum State { Alive, Dead }
 
+	private Transform _transform;
+
 	private State state;
 	
 	[SerializeField]
@@ -14,15 +16,39 @@ public class Bullet : BaseCharacter
 	// Use this for initialization
 
 	private Rigidbody2D rigidbody2d;
+
+
+	private Vector2 movementDirection;
+
+	[SerializeField]
+	private bool isAngledBullet = false;
+	
+	void Awake()
+	{
+		_transform = transform;
+	}
+	
 	void Start () 
 	{
 		rigidbody2d = GetComponent<Rigidbody2D>();
+
+		if( isAngledBullet )
+		{
+		
+			movementDirection = new Vector2( 1.0f , 1.0f );
+			
+		}
+		else
+		{
+			movementDirection = Vector2.right;
+		}
+		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		rigidbody2d.velocity = Vector2.right * speed;
+		rigidbody2d.velocity = movementDirection * speed;
 	}
 
 
@@ -44,6 +70,12 @@ public class Bullet : BaseCharacter
 
 		
     
+	}
+
+	private void RotateBullet()
+	{
+		Debug.Log( "Rotating Bullet..." );
+		_transform.Rotate( 0 , 0, 45.0f );
 	}
 
 	public override void Destroy()
