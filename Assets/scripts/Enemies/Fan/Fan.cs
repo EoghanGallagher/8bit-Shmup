@@ -5,9 +5,6 @@ using UnityEngine;
 public class Fan : BaseCharacter
 {
 
-	
-
-	
 	// Use this for initialization
 	private Rigidbody2D rigidbody2d;
 
@@ -20,14 +17,26 @@ public class Fan : BaseCharacter
 
 
 	[SerializeField]
-	private Transform player;
+	private Transform player , _transform;
+	
 
 	float tempY;
 
 
-	IEnumerator Start()
+	void OnEnable()
 	{
-		
+		StopCoroutine( "FanMovementPattern" );
+		StartCoroutine( "FanMovementPattern" );
+
+		/*Collider2D collider  = GetComponent<Collider2D>();
+		if( !collider.enabled )
+			collider.enabled = true;*/
+	}
+
+	void Start()
+	{
+		_transform = transform;
+
 		ScoreValue = 100;
 		animator = GetComponent<Animator>();
 
@@ -35,20 +44,35 @@ public class Fan : BaseCharacter
 		
 		rigidbody2d = GetComponent< Rigidbody2D >();
 	
+		StartCoroutine( "FanMovementPattern" );
+	
+		
+	}
+
+	IEnumerator FanMovementPattern()
+	{
+			
+		Debug.Log( "Starting Fan Movement" );	
 		movementDirection = new Vector2( -2.0f , 0 ) * speed;
 
 		yield return new WaitForSeconds( 1.5f );
 
-		if( player.position.y < transform.position.y )
+		if( _transform.position.y > player.position.y )
 		{
 			tempY = -2.0f;
 		}
-		else
+		
+		if( _transform.position.y < player.position.y )
 		{
-			tempY = 2.0f;
+			tempY = +2.0f;
 		}
 
-		if( transform.position.y >= 2.3  && player.position.y > transform.position.y )
+		if( Mathf.Round ( _transform.position.y)  ==  Mathf.Round( player.position.y ) )
+		{
+			tempY = 0;
+		}
+
+	    if( transform.position.y >= 2.3  && player.position.y > transform.position.y )
 		{
 			tempY = 0;
 		} 
@@ -60,10 +84,18 @@ public class Fan : BaseCharacter
 
 		movementDirection = new Vector2( 2.0f , tempY ) * speed;
 
-		yield return new WaitForSeconds( 0.5f );
+		while( Mathf.Round ( _transform.position.y) != Mathf.Round( player.position.y ) )
+		{
+				yield return new WaitForSeconds( 0.02f );
+
+
+		}
 		
 		movementDirection = new Vector2( 2.0f , 0 ) * speed;
+
 		
+		yield break;
+
 	}
 
 	void FixedUpdate()
@@ -76,15 +108,23 @@ public class Fan : BaseCharacter
 		rigidbody2d.velocity = movementDirection;
 	}
 
+
+	private bool isHit; 
 	public override void Destroy()
 	{
-		Debug.Log( "Triggering Eventmanager ....." );
-		EventManager.TriggerEvent( "Score" , ScoreValue );
 		
-		movementDirection = Vector2.zero;
-		animator.SetTrigger( "death" );
-		
-		base.Destroy();
+		if( !isHit )
+		{
+			isHit = true;
+			Debug.Log( "Triggering Eventmanager ....." );
+			EventManager.TriggerEvent( "Score" , ScoreValue );
+			
+			movementDirection = Vector2.zero;
+			animator.SetTrigger( "death" );
+			
+			base.Destroy();
+
+		}
 		
 	}
 
