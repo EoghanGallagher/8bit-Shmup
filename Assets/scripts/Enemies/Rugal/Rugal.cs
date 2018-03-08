@@ -33,6 +33,7 @@ public class Rugal : BaseCharacter , IDestroyable
 	public void Start()
 	{
 	
+		ScoreValue = 100;
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		target = GameObject.FindGameObjectWithTag( "Player" ).transform;
 		animator.GetComponent<Animator>();
@@ -62,12 +63,12 @@ public class Rugal : BaseCharacter , IDestroyable
 		}
 		
 		
-		if( target.position.y < ( transform.position.y + 0.25f ) && target.position.y > ( transform.position.y - 0.25f ) )
+	/*	if( target.position.y < ( transform.position.y + 0.25f ) && target.position.y > ( transform.position.y - 0.25f ) )
 		{
 			spriteRenderer.sprite = forward;
 			direction = Vector2.left * speed * 2;
 			Debug.Log( "Attacking ...." );
-		}
+		}*/
 		
 		rigidbody2d.velocity = direction * speed;
 	}
@@ -77,22 +78,29 @@ public class Rugal : BaseCharacter , IDestroyable
 		if( target.position.y < ( transform.position.y - 1 ) )
 		{
 			
-			spriteRenderer.sprite = down;
+		
+			animator.SetBool( "Down" , true );
 
 		}
 		else if( target.position.y > ( transform.position.y + 1 )  )
 		{
-			spriteRenderer.sprite = up;
+			animator.SetBool( "Down" , false );
+			animator.SetBool( "Up" , true );
+			
 		}
 		else
 		{
-			spriteRenderer.sprite = forward;
+			animator.SetBool( "Up" , false);
+			animator.SetBool( "Down" , false);
+			
+	
 		}
 	}
 
 	
 	public override void Destroy()
 	{
+		EventManager.TriggerEvent( "Score" , ScoreValue );
 		animator.SetTrigger( "death" );
 		base.Destroy();
 	}

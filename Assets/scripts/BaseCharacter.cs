@@ -6,10 +6,10 @@ public class BaseCharacter : MonoBehaviour , IDestroyable
 {
 
 
-	public int ScoreValue { get; set; }
+	public int ScoreValue { get; set; } 
 
 	public Animator animator;
-	
+
 	public virtual void Destroy()
 	{
 	 	Invoke( "DisableSelf" , 0.5f );
