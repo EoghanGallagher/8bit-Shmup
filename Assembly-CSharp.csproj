@@ -78,6 +78,7 @@
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\HandlesEx.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapDrawingUtils.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapUtils.cs" />
+     <Compile Include="Assets\LevelBonusPowerUp.cs" />
      <Compile Include="Assets\LevelHandler.cs" />
      <Compile Include="Assets\PowerUpManager.cs" />
      <Compile Include="Assets\scripts\BaseCharacter.cs" />

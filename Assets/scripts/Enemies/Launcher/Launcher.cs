@@ -25,7 +25,7 @@ public class Launcher : MonoBehaviour , IDestroyable
 	private Sprite launcherEmpty ; 
 	void Start () 
 	{
-		ScoreValue = 200;
+		ScoreValue = 1000;
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
