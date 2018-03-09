@@ -56,7 +56,7 @@ public class Bullet : BaseCharacter
 	{
 		if( other.gameObject.tag == "Enemy"  )
 		{
-			other.enabled = false;	
+				
 			IDestroyable iD = other.GetComponent<IDestroyable>();
 			iD.Destroy();  
 				

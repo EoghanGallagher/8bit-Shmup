@@ -16,13 +16,16 @@ public class Spawner : MonoBehaviour
 	[SerializeField]
 	private float spawnDelay;
 
-	// Use this for initialization
-	
+	[SerializeField]
+	private string spawnTrigger;
 
+	// Use this for initialization
+
+	
 	private void OnTriggerEnter2D( Collider2D other )
 	{
 			Debug.Log( other.name );
-		if( other.tag == "SpawnTrigger" )
+		if( other.tag == spawnTrigger )
 		{
 			Debug.Log( "Hit Spawn Collider" );
 			StartCoroutine( "Spawn" );
@@ -38,8 +41,15 @@ public class Spawner : MonoBehaviour
 			PoolManager.instance.SpawnFromPool( objectToSpawn , transform.position, transform.rotation );
 		}
 
+		gameObject.SetActive( false );
+		
 		yield break;
 	}
 	
 	
+	public void Destroy()
+	{
+		StopCoroutine( "Spawn" );
+		gameObject.SetActive( false );
+	}
 }

@@ -18,6 +18,8 @@ public class Fan : BaseCharacter
 
 	[SerializeField]
 	private Transform player , _transform;
+
+	private Collider2D collider2d;
 	
 
 	float tempY;
@@ -25,12 +27,15 @@ public class Fan : BaseCharacter
 
 	void OnEnable()
 	{
+		
+		
 		StopCoroutine( "FanMovementPattern" );
 		StartCoroutine( "FanMovementPattern" );
 
-		/*Collider2D collider  = GetComponent<Collider2D>();
-		if( !collider.enabled )
-			collider.enabled = true;*/
+		collider2d = GetComponent<Collider2D>();
+
+		collider2d.enabled = true;
+		isHit = false;
 	}
 
 	void Start()
@@ -46,13 +51,11 @@ public class Fan : BaseCharacter
 	
 		StartCoroutine( "FanMovementPattern" );
 	
-		
 	}
 
 	IEnumerator FanMovementPattern()
 	{
 			
-		Debug.Log( "Starting Fan Movement" );	
 		movementDirection = new Vector2( -2.0f , 0 ) * speed;
 
 		yield return new WaitForSeconds( 1.5f );
@@ -116,7 +119,8 @@ public class Fan : BaseCharacter
 		if( !isHit )
 		{
 			isHit = true;
-			Debug.Log( "Triggering Eventmanager ....." );
+			collider2d.enabled = false;
+
 			EventManager.TriggerEvent( "Score" , ScoreValue );
 			
 			movementDirection = Vector2.zero;

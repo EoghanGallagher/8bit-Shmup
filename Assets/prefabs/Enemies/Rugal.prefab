@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95463010133382488}
-  speed: 0.5
+  speed: 1.5
   spriteRenderer: {fileID: 212375265829503946}
   up: {fileID: 21300004, guid: 2e9f281107aac4066900a32d5d38550f, type: 3}
   forward: {fileID: 21300002, guid: 2e9f281107aac4066900a32d5d38550f, type: 3}

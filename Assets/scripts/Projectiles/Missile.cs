@@ -20,13 +20,23 @@ public class Missile : BaseCharacter
 	[SerializeField]
 	private Sprite falling,  onGround;
 
+	void Awake()
+	{
+		
+	}
 
-
-	void Start () 
+	void OnEnable()
 	{
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		
+		spriteRenderer.sprite = falling;
+		direction = new Vector2( 0.5f , -1.0f );
+	}
 
+	void Start () 
+	{
+		
 		tempDirection = direction;
 	}
 	
@@ -59,9 +69,6 @@ public class Missile : BaseCharacter
 
 		if( other.tag == "Terrain" )
 		{
-			spriteRenderer.sprite = falling;
-			direction = tempDirection;
-			
 			Destroy();
 		}
 
@@ -70,10 +77,6 @@ public class Missile : BaseCharacter
 
 	public override void Destroy()
 	{
-		spriteRenderer.sprite = falling;
-		direction = new Vector2( 0.5f , -1.0f );
-		speed = 3;
-
 		gameObject.SetActive( false );
 	}
 }

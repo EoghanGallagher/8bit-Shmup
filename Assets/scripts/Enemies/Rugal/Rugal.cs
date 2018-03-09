@@ -28,25 +28,35 @@ public class Rugal : BaseCharacter , IDestroyable
 	[SerializeField]
 	private Sprite down;
 
-	//private Animator animator;
+	private Collider2D collider2d;
+
+	void OnEnable()
+	{
+		isHit = false;
+		collider2d = GetComponent<Collider2D>();
+
+		if( !collider2d.enabled )
+		{
+			collider2d.enabled = true;
+		}
+	}
 
 	public void Start()
 	{
-	
 		ScoreValue = 100;
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		target = GameObject.FindGameObjectWithTag( "Player" ).transform;
 		animator.GetComponent<Animator>();
 		spriteRenderer = GetComponent< SpriteRenderer >();
-
 	}
+
 
 	void FixedUpdate()
 	{	
 		Move();		 
 	}
 
-	private void  Move()
+	private void Move()
 	{
 		temp = transform.position;
 		
@@ -63,12 +73,12 @@ public class Rugal : BaseCharacter , IDestroyable
 		}
 		
 		
-	/*	if( target.position.y < ( transform.position.y + 0.25f ) && target.position.y > ( transform.position.y - 0.25f ) )
+		if( target.position.y < ( transform.position.y + 0.25f ) && target.position.y > ( transform.position.y - 0.25f ) && Vector2.Distance( transform.position , target.position ) < 3.0f  )
 		{
 			spriteRenderer.sprite = forward;
 			direction = Vector2.left * speed * 2;
-			Debug.Log( "Attacking ...." );
-		}*/
+		
+		}
 		
 		rigidbody2d.velocity = direction * speed;
 	}
@@ -97,12 +107,17 @@ public class Rugal : BaseCharacter , IDestroyable
 		}
 	}
 
-	
+	private bool isHit = false;
 	public override void Destroy()
 	{
-		EventManager.TriggerEvent( "Score" , ScoreValue );
-		animator.SetTrigger( "death" );
-		base.Destroy();
+		if( !isHit )
+		{
+			isHit = true;
+			collider2d.enabled = false;
+			EventManager.TriggerEvent( "Score" , ScoreValue );
+			animator.SetTrigger( "death" );
+			base.Destroy();
+		}
 	}
 
 }

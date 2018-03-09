@@ -33,6 +33,12 @@ public class Launcher : MonoBehaviour , IDestroyable
 	public void Destroy()
 	{
 		EventManager.TriggerEvent( "Score" , ScoreValue );
+
+		Spawner spawner = GetComponent<Spawner>();
+
+		if( spawner != null )
+			spawner.Destroy();
+
 		animator.SetTrigger( "death" );
 		Invoke( "DisableSelf" , 0.5f );
 	}
@@ -60,11 +66,12 @@ public class Launcher : MonoBehaviour , IDestroyable
 	}
 
 
-	 void OnTriggerExit2D(Collider2D other)
+	 void OnTriggerEnter2D(Collider2D other)
     {
        
-		if( other.tag == "Enemy" )
+		if( other.name == "LauncherSpawn(Clone)" )
 		{
+			Debug.Log( "Other " + other.name );
 			spawnCount ++;
 
 			if( isFlipped )

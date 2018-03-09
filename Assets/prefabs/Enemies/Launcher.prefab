@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4987839135469620}
   - component: {fileID: 114479104240255166}
+  - component: {fileID: 61585351311210260}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -52,14 +53,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1099095291589130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.83, y: -1.875, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -32.187916, y: 1.2821586, z: 0.64142734}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4987839135469620}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4987839135469620
 Transform:
   m_ObjectHideFlags: 1
@@ -98,6 +99,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.08}
   m_EdgeRadius: 0
+--- !u!61 &61585351311210260
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004611713337664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4, y: 4}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8, y: 9}
+  m_EdgeRadius: 0
 --- !u!95 &95470622130496474
 Animator:
   serializedVersion: 3
@@ -126,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b1263893823415ca9b4c3b34eb9089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlipped: 0
   spawnCount: 0
   spawnLimit: 5
   launcherEmpty: {fileID: 21300002, guid: b1ed37ebbedf4421cadb26dccbfab4e6, type: 3}
@@ -144,6 +171,7 @@ MonoBehaviour:
   objectToSpawn: LauncherSpawn
   spawnCount: 5
   spawnDelay: 0.25
+  spawnTrigger: Player
 --- !u!212 &212890898198830864
 SpriteRenderer:
   m_ObjectHideFlags: 1
