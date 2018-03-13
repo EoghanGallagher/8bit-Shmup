@@ -67,7 +67,6 @@ public class Rugal : BaseCharacter , IDestroyable
 		}
 		else if( target.position.x > transform.position.x )
 		{
-			Debug.Log( "Position X is Greater....." );
 			spriteRenderer.sprite = forward;
 			direction = Vector2.left;
 		}

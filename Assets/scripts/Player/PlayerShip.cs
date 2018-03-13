@@ -74,6 +74,11 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		EventManager.StopListening( "Double" , ToggleDouble );
 	}
 	// Use this for initialization
+
+	private void Awake()
+	{
+		DontDestroyOnLoad( gameObject );
+	}
 	private void Start () 
 	{
 

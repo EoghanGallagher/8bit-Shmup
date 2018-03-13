@@ -7,16 +7,20 @@ public class Jumper : MonoBehaviour
 
 	public float jumpTime = 0.5f;
 
+	private float jumpVector;
+
+	private float jumpPower;
+
 	public float nextJump;
 
-	Rigidbody2D rigidbody2d;
+	Rigidbody2D rB2D;
 	// Use this for initialization
 
 	private Vector2 direction;
 	void Start () 
 	{
 
-		rigidbody2d = GetComponent<Rigidbody2D>();
+		rB2D = GetComponent<Rigidbody2D>();
 	
 
 	}
@@ -29,7 +33,8 @@ public class Jumper : MonoBehaviour
 
 	void Jump()
 	{
-		
+
+	 	rB2D.AddForce( new Vector2( -1.0f, 1.0f ) );
 	
 	}
 }

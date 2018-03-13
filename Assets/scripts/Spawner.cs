@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
 	
 	private void OnTriggerEnter2D( Collider2D other )
 	{
-			Debug.Log( other.name );
+		
 		if( other.tag == spawnTrigger )
 		{
 			Debug.Log( "Hit Spawn Collider" );

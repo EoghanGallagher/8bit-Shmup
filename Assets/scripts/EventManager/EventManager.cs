@@ -10,7 +10,11 @@ public class EventManager : MonoBehaviour
 {
 	
 
-	
+	void Awake()
+	{
+		DontDestroyOnLoad( gameObject );
+	}
+
 	[SerializeField]
 	private Dictionary <string , ThisEvent> eventDictionary;
 

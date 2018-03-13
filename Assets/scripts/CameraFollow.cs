@@ -14,6 +14,14 @@ public class CameraFollow : MonoBehaviour {
 
 	public Vector3 offset; 
 
+	void Awake()
+	{
+		DontDestroyOnLoad( gameObject );
+	}
+
+
+   
+
 	void FixedUpdate()
 	{
 		
