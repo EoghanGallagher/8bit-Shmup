@@ -896,6 +896,7 @@ MonoBehaviour:
   isOkToUnloadScene: 1
   levelToLoad: 1
   levelToUnload: 0
+  nextDestination: 2
 --- !u!61 &112966514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1272,7 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081313296896c42609a58f770e519e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.2
   destinations:
   - id: 0
     destination: {fileID: 351587041}
@@ -2664,6 +2665,7 @@ MonoBehaviour:
   isOkToUnloadScene: 0
   levelToLoad: 8
   levelToUnload: 0
+  nextDestination: 1
 --- !u!61 &351587043
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3860,7 +3862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOkToUnloadScene: 1
   levelToLoad: 1
-  levelToUnload: 0
+  levelToUnload: 8
+  nextDestination: 3
 --- !u!1001 &511448277
 Prefab:
   m_ObjectHideFlags: 0
