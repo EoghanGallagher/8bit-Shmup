@@ -38,6 +38,11 @@ public class WeaponSystem : MonoBehaviour
 		StartCoroutine( LoadProjectile( "Laser" , laserDelay ) );
 	}
 
+	public void EnemyBullet()
+	{
+		StartCoroutine( LoadProjectile( "EnemyBullet" , bulletDelay ) );
+	}
+
 	//Bullets
 	private IEnumerator LoadProjectile( string objName, float delay )
 	{

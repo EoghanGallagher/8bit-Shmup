@@ -6,12 +6,15 @@ public class Dee001 : BaseCharacter
 {
 
 	[SerializeField]
-	private bool isFlippedHorizontally = false , isFlippedVertically = false;
+	private bool isFlippedHorizontally = false;
 
 	private Transform playerShip;
 
 	private Transform _transform;
 	// Use this for initialization
+
+	[SerializeField]
+	private Transform muzzle;
 
 	private Animator anim;
 
@@ -32,7 +35,7 @@ public class Dee001 : BaseCharacter
 		FlipHorizontally();
 		
 		Aim();
-	
+
 	}
 
 	private void FlipHorizontally()
@@ -40,31 +43,22 @@ public class Dee001 : BaseCharacter
 		if( playerShip.position.x < transform.position.x )
 		{
 		
-				if( !isFlippedHorizontally )
-				{
-					
-					if( isFlippedVertically )
-						transform.localRotation = Quaternion.Euler(180, 180, 0);
-					else
-						transform.localRotation = Quaternion.Euler(0, 180, 0);
-
-					isFlippedHorizontally = true;
-					Debug.Log( "Dee 01 is facing left" );
-				}
-			
+			if( !isFlippedHorizontally )
+			{
+				Flip();
+				isFlippedHorizontally = true;
+				
+			}
+	
 		}
 		else
 		{	
 
 			if( isFlippedHorizontally )
 			{
-				if( isFlippedVertically )
-					transform.localRotation = Quaternion.Euler(180, 0, 0);
-				else
-					transform.localRotation = Quaternion.Euler(0, 0, 0);	
-
+				Flip();
 				isFlippedHorizontally = false;
-				Debug.Log( "Dee 01 is facing right" );
+				
 			}
 		}
 	}
@@ -76,12 +70,36 @@ public class Dee001 : BaseCharacter
 	private void Aim()
 	{
 		 
-		 
 		 m_Angle = Vector2.Angle( playerShip.position , _transform.position );
 
-		 Debug.Log( m_Angle );
-
 		 anim.SetFloat( "angle" , m_Angle );
-	
+
 	}
+
+	//Called by Animator when an animation change occurs
+	private void PositionMuzzle(  )
+	{
+		 muzzle = _transform.GetChild(0);
+		 Debug.Log( "Position Muzzle : " + muzzle.name );
+		
+		 if( m_Angle > 0.0f &&  m_Angle <= 6.0f )
+		 {
+			 muzzle.localPosition = new Vector2( 0.3f , 0.335f );
+		 }
+		 else if( m_Angle > 6.0f && m_Angle <= 21  )
+		 {
+			 muzzle.localPosition = new Vector2( 0.29f , 0.55f );
+		 }
+		 else if( m_Angle > 21 )
+		 {
+			 muzzle.localPosition = new Vector2( 0.1f , 0.6f );
+		 }
+	}
+
+	 void Flip()
+     {
+         Vector2 theScale = _transform.localScale;
+         theScale.x *= -1;
+         _transform.localScale = theScale;
+     }
 }
