@@ -53,12 +53,10 @@ public class Dee001 : BaseCharacter
 		}
 		else
 		{	
-
 			if( isFlippedHorizontally )
 			{
 				Flip();
 				isFlippedHorizontally = false;
-				
 			}
 		}
 	}
@@ -102,4 +100,13 @@ public class Dee001 : BaseCharacter
          theScale.x *= -1;
          _transform.localScale = theScale;
      }
+
+
+	public override void Destroy()
+	{
+		base.Destroy();	
+		
+	}
+
+	
 }
