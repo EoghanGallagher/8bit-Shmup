@@ -27,10 +27,13 @@ public class Dee001 : BaseCharacter , IFireable
 
 	void OnEnable()
 	{
+		coll2D = GetComponent<Collider2D>();
+		
 		if( !coll2D.enabled )
 			coll2D.enabled = true;
 
 		ScoreValue = 100;	
+		isHit = false;
 	}
 	
 	IEnumerator Start () 
@@ -137,13 +140,12 @@ public class Dee001 : BaseCharacter , IFireable
 	private bool isHit; 
 	public override void Destroy()
 	{
-		
+	
 		if( !isHit )
 		{
 			isHit = true;
 			coll2D.enabled = false;
 
-			Debug.Log( "DEE-001 " + ScoreValue );
 			EventManager.TriggerEvent( "Score" , ScoreValue );
 			
 			animator.SetTrigger( "Death" );

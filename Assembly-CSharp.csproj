@@ -51,6 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CoreShield.cs" />
+     <Compile Include="Assets\CoreShieldElement.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Kenneys - Rogue Like\RogueLikeMapGenerator.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Data\ParameterContainer.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\A2X2Brush.cs" />
@@ -81,9 +83,13 @@
      <Compile Include="Assets\LevelBonusPowerUp.cs" />
      <Compile Include="Assets\LevelManager.cs" />
      <Compile Include="Assets\LevelMarker.cs" />
+     <Compile Include="Assets\MidBossCore.cs" />
+     <Compile Include="Assets\MidBossMissile.cs" />
+     <Compile Include="Assets\MidBossMissiles.cs" />
      <Compile Include="Assets\PowerUpManager.cs" />
      <Compile Include="Assets\scripts\BaseCharacter.cs" />
      <Compile Include="Assets\scripts\CameraFollow.cs" />
+     <Compile Include="Assets\scripts\Enemies\BigCore\BigCore.cs" />
      <Compile Include="Assets\scripts\Enemies\Bubbles\Bubble.cs" />
      <Compile Include="Assets\scripts\Enemies\Dee-001\Dee001.cs" />
      <Compile Include="Assets\scripts\Enemies\EnemyBullet.cs" />
@@ -114,6 +120,7 @@
      <Compile Include="Assets\scripts\ShipAnchor.cs" />
      <Compile Include="Assets\scripts\SoundManager.cs" />
      <Compile Include="Assets\scripts\Spawner.cs" />
+     <Compile Include="Assets\VulnerableCore.cs" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Tiled - Tmx Import\license.txt" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\changelog.txt" />
  <Reference Include="Facebook.Unity.Settings">

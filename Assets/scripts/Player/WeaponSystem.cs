@@ -8,7 +8,8 @@ public class WeaponSystem : MonoBehaviour
 	private float missileDelay  = 1.0f , 
 	bulletDelay = 0.25f ,
 	laserDelay = 0.2f,
-	enemyBulletDelay = 2.0f;
+	enemyBulletDelay = 2.0f,
+	midBossMissileDelay = 0f;
 
 	private bool isLoadProjectileExecuting = false;
 	private bool isAngledBullet = false;
@@ -43,6 +44,12 @@ public class WeaponSystem : MonoBehaviour
 	{
 		StartCoroutine( LoadProjectile( "EnemyBullet" , enemyBulletDelay ) );
 	}
+
+	public void MidBossMissile()
+	{
+		StartCoroutine( LoadProjectile( "MidBossMissile" , midBossMissileDelay ) );
+	}
+	
 
 	//Bullets
 	private IEnumerator LoadProjectile( string objName, float delay )

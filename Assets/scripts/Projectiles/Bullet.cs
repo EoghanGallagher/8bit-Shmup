@@ -63,13 +63,11 @@ public class Bullet : BaseCharacter
 			Destroy();
 
 		}
-		else if( other.tag == "Terrain" )
+		else if( other.tag == "Terrain" || other.tag == "Core" )
 		{
 			Destroy();	
 		}
-
-		
-    
+	
 	}
 
 	private void RotateBullet()

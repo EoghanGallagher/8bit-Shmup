@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114564525307540854}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   speed: 25
+  isAngledBullet: 0
 --- !u!212 &212555787890310314
 SpriteRenderer:
   m_ObjectHideFlags: 1

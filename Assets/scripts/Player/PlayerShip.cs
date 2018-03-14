@@ -131,6 +131,11 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			EventManager.TriggerEvent( "ActivatePowerUp" , 0 );
 		}
 
+		if( Input.GetKeyDown( KeyCode.L ) )
+		{
+			EventManager.TriggerEvent( "Lazer" , 1 );
+		}
+
 
 	}
 
@@ -257,9 +262,9 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	} 
 
 
-	private void OnCollisionEnter2D( Collision2D coll )
+	private void OnTriggerEnter2D( Collider2D other )
 	{
-		if( coll.gameObject.tag == "Terrain" )
+		if( other.tag == "Terrain" )
 		{
 			speed = 0;
 			Destroy( );

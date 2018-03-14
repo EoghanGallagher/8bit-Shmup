@@ -11,6 +11,9 @@ TagManager:
   - Ground
   - Anchor
   - SpawnTrigger
+  - Laser
+  - Core
+  - MidBoss
   layers:
   - Default
   - TransparentFX
