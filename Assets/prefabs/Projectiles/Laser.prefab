@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  speed: 25
+  speed: 15
   isAngledBullet: 0
 --- !u!212 &212555787890310314
 SpriteRenderer:

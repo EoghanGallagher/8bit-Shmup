@@ -124,11 +124,11 @@ public class Dee001 : BaseCharacter , IFireable
 	{
 		 muzzle = _transform.GetChild(0);
 		
-		 if( m_Angle > 0.0f &&  m_Angle <= 3.0f )
+		 if( m_Angle > 0.0f &&  m_Angle <= 1.0f )
 		 {
 			 muzzle.localPosition = new Vector2( 0.3f , 0.335f );
 		 }
-		 else if( m_Angle > 3.0f && m_Angle <= 15  )
+		 else if( m_Angle > 1.0f && m_Angle <= 15  )
 		 {
 			 muzzle.localPosition = new Vector2( 0.29f , 0.55f );
 		 }

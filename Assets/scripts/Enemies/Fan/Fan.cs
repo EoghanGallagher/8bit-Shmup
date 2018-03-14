@@ -28,7 +28,6 @@ public class Fan : BaseCharacter
 	void OnEnable()
 	{
 		
-		
 		StopCoroutine( "FanMovementPattern" );
 		StartCoroutine( "FanMovementPattern" );
 
