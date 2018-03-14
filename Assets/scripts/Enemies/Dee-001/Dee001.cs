@@ -2,29 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dee001 : BaseCharacter 
+public class Dee001 : BaseCharacter , IFireable
 {
 
 	[SerializeField]
 	private bool isFlippedHorizontally = false;
 
-	private Transform playerShip;
-
-	private Transform _transform;
+	private Transform playerShip , _transform;
 	// Use this for initialization
 
 	[SerializeField]
 	private Transform muzzle;
 
+	private Collider2D coll2D;
+
 	private Animator anim;
 
 	private float m_Angle;
-	void Start () 
+
+	[SerializeField]
+	private float fireDelay = 2.0f;
+
+	private WeaponSystem weaponSystem;
+
+	void OnEnable()
 	{
+		if( !coll2D.enabled )
+			coll2D.enabled = true;
+
+		ScoreValue = 100;	
+	}
+	
+	IEnumerator Start () 
+	{
+		ScoreValue = 100;
+		//Find Player
 		playerShip = GameObject.FindGameObjectWithTag( "Player" ).transform;
 		_transform = transform;
 
 		anim = GetComponent<Animator>();
+
+		weaponSystem = muzzle.GetComponent<WeaponSystem>();
+
+		coll2D = GetComponent<Collider2D>();
+
+		if( weaponSystem == null )
+		{
+			Debug.Log( "Weapon System is missing from DEE-01" );
+			yield break;
+		}
+
+		while( gameObject.activeSelf)
+		{
+			yield return new WaitForSeconds( fireDelay );
+			Fire();
+		}
+
 
 	}
 	
@@ -38,18 +71,16 @@ public class Dee001 : BaseCharacter
 
 	}
 
+	//Flip Dee-01 to face player
 	private void FlipHorizontally()
 	{
 		if( playerShip.position.x < transform.position.x )
 		{
-		
 			if( !isFlippedHorizontally )
 			{
 				Flip();
-				isFlippedHorizontally = true;
-				
+				isFlippedHorizontally = true;	
 			}
-	
 		}
 		else
 		{	
@@ -78,7 +109,6 @@ public class Dee001 : BaseCharacter
 	private void PositionMuzzle(  )
 	{
 		 muzzle = _transform.GetChild(0);
-		 Debug.Log( "Position Muzzle : " + muzzle.name );
 		
 		 if( m_Angle > 0.0f &&  m_Angle <= 6.0f )
 		 {
@@ -94,6 +124,7 @@ public class Dee001 : BaseCharacter
 		 }
 	}
 
+	//Flip sprite
 	 void Flip()
      {
          Vector2 theScale = _transform.localScale;
@@ -102,10 +133,30 @@ public class Dee001 : BaseCharacter
      }
 
 
+	
+	private bool isHit; 
 	public override void Destroy()
 	{
-		base.Destroy();	
 		
+		if( !isHit )
+		{
+			isHit = true;
+			coll2D.enabled = false;
+
+			Debug.Log( "DEE-001 " + ScoreValue );
+			EventManager.TriggerEvent( "Score" , ScoreValue );
+			
+			animator.SetTrigger( "Death" );
+			
+			base.Destroy();
+
+		}
+		
+	}
+
+	public void Fire()
+	{
+		weaponSystem.EnemyBullet();
 	}
 
 	

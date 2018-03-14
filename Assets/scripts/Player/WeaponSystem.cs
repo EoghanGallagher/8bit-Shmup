@@ -7,7 +7,8 @@ public class WeaponSystem : MonoBehaviour
 	[SerializeField]
 	private float missileDelay  = 1.0f , 
 	bulletDelay = 0.25f ,
-	laserDelay = 0.2f;
+	laserDelay = 0.2f,
+	enemyBulletDelay = 2.0f;
 
 	private bool isLoadProjectileExecuting = false;
 	private bool isAngledBullet = false;
@@ -40,7 +41,7 @@ public class WeaponSystem : MonoBehaviour
 
 	public void EnemyBullet()
 	{
-		StartCoroutine( LoadProjectile( "EnemyBullet" , bulletDelay ) );
+		StartCoroutine( LoadProjectile( "EnemyBullet" , enemyBulletDelay ) );
 	}
 
 	//Bullets
