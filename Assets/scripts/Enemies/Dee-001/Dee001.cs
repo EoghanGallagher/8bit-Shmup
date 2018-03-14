@@ -25,6 +25,9 @@ public class Dee001 : BaseCharacter , IFireable
 
 	private WeaponSystem weaponSystem;
 
+	[SerializeField]
+	private bool isActive = false;
+
 	void OnEnable()
 	{
 		coll2D = GetComponent<Collider2D>();
@@ -34,7 +37,10 @@ public class Dee001 : BaseCharacter , IFireable
 
 		ScoreValue = 100;	
 		isHit = false;
+		isActive = false;
 	}
+
+
 	
 	IEnumerator Start () 
 	{
@@ -53,6 +59,11 @@ public class Dee001 : BaseCharacter , IFireable
 		{
 			Debug.Log( "Weapon System is missing from DEE-01" );
 			yield break;
+		}
+
+		while( !isActive )
+		{
+			yield return new WaitForSeconds(1.0f);
 		}
 
 		while( gameObject.activeSelf)
@@ -113,15 +124,15 @@ public class Dee001 : BaseCharacter , IFireable
 	{
 		 muzzle = _transform.GetChild(0);
 		
-		 if( m_Angle > 0.0f &&  m_Angle <= 6.0f )
+		 if( m_Angle > 0.0f &&  m_Angle <= 3.0f )
 		 {
 			 muzzle.localPosition = new Vector2( 0.3f , 0.335f );
 		 }
-		 else if( m_Angle > 6.0f && m_Angle <= 21  )
+		 else if( m_Angle > 3.0f && m_Angle <= 15  )
 		 {
 			 muzzle.localPosition = new Vector2( 0.29f , 0.55f );
 		 }
-		 else if( m_Angle > 21 )
+		 else if( m_Angle > 15 )
 		 {
 			 muzzle.localPosition = new Vector2( 0.1f , 0.6f );
 		 }
@@ -144,6 +155,7 @@ public class Dee001 : BaseCharacter , IFireable
 		if( !isHit )
 		{
 			isHit = true;
+			isActive = false;
 			coll2D.enabled = false;
 
 			EventManager.TriggerEvent( "Score" , ScoreValue );
@@ -159,6 +171,15 @@ public class Dee001 : BaseCharacter , IFireable
 	public void Fire()
 	{
 		weaponSystem.EnemyBullet();
+	}
+
+	private void OnTriggerEnter2D( Collider2D other )
+	{
+		if( other.tag == "SpawnTrigger" )
+		{
+			Debug.Log("Waking Up Dee 01");
+			isActive = true;
+		}
 	}
 
 	

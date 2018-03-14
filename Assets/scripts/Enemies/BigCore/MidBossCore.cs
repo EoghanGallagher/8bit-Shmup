@@ -25,6 +25,8 @@ public class MidBossCore : BaseCharacter
 
 	private float speed = 2;
 
+	private Transform player;
+
 
 	
 
@@ -52,6 +54,13 @@ public class MidBossCore : BaseCharacter
 
 		missileLauncher = muzzle.GetComponent<WeaponSystem>();
 
+		player = GameObject.FindGameObjectWithTag( "Player" ).transform;
+
+		if( !player )
+		{
+			Debug.Log( "Player Transform not Found." );
+		}
+
 		if( !vulnerableCore )
 		{
 			Debug.Log( "Vulnerbale Core not Set..." );
@@ -77,6 +86,22 @@ public class MidBossCore : BaseCharacter
 			Fire( 0 );
 			Debug.Log("Firing Missile");
 			yield return new WaitForSeconds( 1.0f );
+		}
+
+
+		for (int x  = 0; x < 4; x ++  )
+		{
+			while( player.position.y != transform.position.y )
+			{
+				if( player.position.y < transform.position.y )
+				{
+					movementDirection  = new Vector2(0 , -1.0f);
+				}
+				else if( player.position.y > transform.position.y )
+				{
+					movementDirection  = new Vector2(0 , 1.0f);
+				}
+			}
 		}
 
 	
