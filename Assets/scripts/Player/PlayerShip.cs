@@ -121,7 +121,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			EventManager.TriggerEvent( "Option1" , 0 );
 		}
 
-		if (Input.GetKeyDown( KeyCode.P ) )
+		if (Input.GetKeyDown( KeyCode.I ) )
 		{
 			EventManager.TriggerEvent( "Option2" , 0 );
 		}

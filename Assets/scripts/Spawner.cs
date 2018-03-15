@@ -19,6 +19,9 @@ public class Spawner : MonoBehaviour
 	[SerializeField]
 	private string spawnTrigger;
 
+	[SerializeField]
+	private int spawnerId;
+
 	// Use this for initialization
 
 	
@@ -38,7 +41,17 @@ public class Spawner : MonoBehaviour
 		{
 			yield return new WaitForSeconds( spawnDelay );
 
-			PoolManager.instance.SpawnFromPool( objectToSpawn , transform.position, transform.rotation );
+			GameObject spawn = PoolManager.instance.SpawnFromPool( objectToSpawn , transform.position, transform.rotation );
+			
+			
+			//Assign all enemies an id to indicate which spawner spawned them
+			BaseCharacter bChar = spawn.GetComponent<BaseCharacter>();
+
+			if( bChar != null )
+			{
+				bChar.SpawnerId = spawnerId;
+			}
+			 
 		}
 
 		gameObject.SetActive( false );

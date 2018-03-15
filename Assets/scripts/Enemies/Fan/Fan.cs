@@ -11,6 +11,13 @@ public class Fan : BaseCharacter
 	[SerializeField]
 	private float speed = 6.0f;
 
+	[SerializeField]
+	private int spawnerId;
+
+	[SerializeField]
+	private float squadLeftAliveCount = 4; //How many in the squad are alive
+
+
 	private int selection;
 
 	Vector2 movementDirection;
@@ -35,11 +42,24 @@ public class Fan : BaseCharacter
 
 		collider2d.enabled = true;
 		isHit = false;
+
+		EventManager.StartListening( "UpdateSquadCount" , UpdateSquadCount );
+
+		squadLeftAliveCount = 4;
+
+	
+	}
+
+	void OnDisable()
+	{
+		EventManager.StopListening( "UpdateSquadCount" , UpdateSquadCount );
 	}
 
 	void Start()
 	{
 		_transform = transform;
+
+		spawnerId = SpawnerId;
 
 		ScoreValue = 100;
 		animator = GetComponent<Animator>();
@@ -49,6 +69,8 @@ public class Fan : BaseCharacter
 		rigidbody2d = GetComponent< Rigidbody2D >();
 	
 		StartCoroutine( "FanMovementPattern" );
+
+		
 	
 	}
 
@@ -111,6 +133,34 @@ public class Fan : BaseCharacter
 	}
 
 
+	//Assign Squad id
+	//Received from Spawner
+	
+
+	//Decrement the squadLeftAliveCount
+	private void UpdateSquadCount( int id )
+	{
+
+		//Check if message came from member of squad
+		if( SpawnerId != id )
+		{
+			return;
+		}
+
+		// if I'm the last in my squad 
+		//When I die I will drop a powerup
+	
+		if( squadLeftAliveCount == 0 )
+		{
+			//Spawn the power up using pool manager
+			PoolManager.instance.SpawnFromPool( "OrangePowerUp" , transform.position, transform.rotation );
+	
+		}
+
+		//if I'm not the last in my squad decrease the squad count
+		squadLeftAliveCount --;
+	}
+
 	private bool isHit; 
 	public override void Destroy()
 	{
@@ -120,11 +170,24 @@ public class Fan : BaseCharacter
 			isHit = true;
 			collider2d.enabled = false;
 
+			//Let other enemies in squad know this unit is dead
+			//Each enemy will update their squad count
+			EventManager.TriggerEvent( "UpdateSquadCount" , SpawnerId );
+			
+			//Stop listening for incoming messages from squad
+			//This prevents this enemy from updating its squad count again before its destruction cycle is completed
+			EventManager.StopListening( "UpdateSquadCount" , UpdateSquadCount );
+			squadLeftAliveCount = 5;
+			
+			//Update score with this enemies score value
 			EventManager.TriggerEvent( "Score" , ScoreValue );
 			
 			movementDirection = Vector2.zero;
+			
+			//Trigger death animation
 			animator.SetTrigger( "death" );
 			
+			//Use parents destroy method
 			base.Destroy();
 
 		}

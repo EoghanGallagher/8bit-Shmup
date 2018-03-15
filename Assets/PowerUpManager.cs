@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [System.Serializable]
 public class PowerUpSprite
 {
@@ -25,6 +26,9 @@ public class PowerUpManager : MonoBehaviour
 	[SerializeField]
 	private static int powerUpCount;
 
+	[SerializeField]
+	private GameObject pause;
+
 	
 	private void OnEnable()
 	{
@@ -32,6 +36,9 @@ public class PowerUpManager : MonoBehaviour
 		EventManager.StartListening( "ActivatePowerUp" , ActivatePowerUp );
 		EventManager.StartListening( "ResetPowerUpCount" , ResetPowerUpCount );
 		EventManager.StartListening( "DoubleStatus" , DoubleStatus  );
+		EventManager.StartListening(  "PauseGame" , ShowPauseMessage );
+
+		
 	}
 
 	private void OnDisable()
@@ -40,6 +47,7 @@ public class PowerUpManager : MonoBehaviour
 		EventManager.StopListening( "ActivatePowerUp" , ActivatePowerUp );
 		EventManager.StopListening( "ResetPowerUpCount" , ResetPowerUpCount );
 		EventManager.StopListening( "DoubleStatus" , DoubleStatus  );
+		EventManager.StopListening(  "PauseGame" , ShowPauseMessage );
 	}
 	
 
@@ -280,7 +288,22 @@ public class PowerUpManager : MonoBehaviour
 		EventManager.TriggerEvent( "Double" , 0 );
 	}
 
+	//Display Pause message on screen
+	private void ShowPauseMessage( int x )
+	{
+		
+		Debug.Log( "I was Called" );
+		if( x == 1 )
+		{
+			Debug.Log( "Showing Text" );
+			pause.SetActive( true );
+		}
+		else
+		{
+			pause.SetActive( false );
+		}
 
+	}
 	
 
 }

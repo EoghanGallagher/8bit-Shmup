@@ -119,6 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   speed: 5
+  squadID: 0
+  squadLeftAliveCount: 4
   player: {fileID: 0}
   _transform: {fileID: 0}
 --- !u!212 &212839718068026870

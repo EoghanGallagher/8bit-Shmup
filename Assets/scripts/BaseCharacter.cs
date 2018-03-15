@@ -6,6 +6,9 @@ public class BaseCharacter : MonoBehaviour , IDestroyable
 {
 	public int ScoreValue { get; set; }
 
+	[SerializeField]
+	public int SpawnerId { get; set; }
+
 	public Animator animator;
 
 	public virtual void Destroy()
@@ -22,4 +25,7 @@ public class BaseCharacter : MonoBehaviour , IDestroyable
 	{
     	gameObject.SetActive( false );
     }
+
+
+	
 }
