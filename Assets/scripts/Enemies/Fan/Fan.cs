@@ -9,7 +9,7 @@ public class Fan : BaseCharacter
 	private Rigidbody2D rigidbody2d;
 
 	[SerializeField]
-	private float speed = 2.0f;
+	private float speed = 6.0f;
 
 	private int selection;
 
@@ -55,7 +55,7 @@ public class Fan : BaseCharacter
 	IEnumerator FanMovementPattern()
 	{
 			
-		movementDirection = new Vector2( -2.0f , 0 ) * speed;
+		movementDirection = new Vector2( -2.0f , 0 ).normalized * speed;
 
 		yield return new WaitForSeconds( 1.5f );
 
@@ -84,7 +84,7 @@ public class Fan : BaseCharacter
 			tempY = 0;
 		}
 
-		movementDirection = new Vector2( 2.0f , tempY ) * speed;
+		movementDirection = new Vector2( 2.0f , tempY ).normalized * speed;
 
 		while( Mathf.Round ( _transform.position.y) != Mathf.Round( player.position.y ) )
 		{
@@ -93,7 +93,7 @@ public class Fan : BaseCharacter
 
 		}
 		
-		movementDirection = new Vector2( 2.0f , 0 ) * speed;
+		movementDirection = new Vector2( 2.0f , 0 ).normalized * speed;
 
 		
 		yield break;
