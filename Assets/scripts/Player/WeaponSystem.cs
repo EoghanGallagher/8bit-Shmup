@@ -19,40 +19,40 @@ public class WeaponSystem : MonoBehaviour
 	public void Bullet()
 	{
 		isAngledBullet = false;
-		StartCoroutine( LoadProjectile( "Bullet" , bulletDelay ) );
+		StartCoroutine( LoadProjectile( "Bullet" , bulletDelay, 2 ) );
 		
 	}
 
 	public void AngledBullet()
 	{
 		isAngledBullet = false;
-		StartCoroutine( LoadProjectile( "AngledBullet" , bulletDelay ) );
+		StartCoroutine( LoadProjectile( "AngledBullet" , bulletDelay ,2 ) );
 
 	}
 
 	public void Missile()
 	{
-		StartCoroutine( LoadProjectile( "Missile" , missileDelay ) );
+		StartCoroutine( LoadProjectile( "Missile" , missileDelay , 2 ) );
 	}
 
 	public void Laser()
 	{
-		StartCoroutine( LoadProjectile( "Laser" , laserDelay ) );
+		StartCoroutine( LoadProjectile( "Laser" , laserDelay, 2 ) );
 	}
 
 	public void EnemyBullet()
 	{
-		StartCoroutine( LoadProjectile( "EnemyBullet" , enemyBulletDelay ) );
+		StartCoroutine( LoadProjectile( "EnemyBullet" , enemyBulletDelay, 2 ) );
 	}
 
 	public void MidBossMissile()
 	{
-		StartCoroutine( LoadProjectile( "MidBossMissile" , midBossMissileDelay ) );
+		StartCoroutine( LoadProjectile( "MidBossMissile" , midBossMissileDelay,2 ) );
 	}
 	
 
 	//Bullets
-	private IEnumerator LoadProjectile( string objName, float delay )
+	private IEnumerator LoadProjectile( string objName, float delay , int soundIndex )
 	{
 		if( isLoadProjectileExecuting )
 			yield break;
@@ -62,7 +62,7 @@ public class WeaponSystem : MonoBehaviour
 		yield return new WaitForSeconds( delay );
 		
 		
-		
+		EventManager.TriggerEvent( "PlaySound" , soundIndex ); //Bullet Sound
 		PoolManager.instance.SpawnFromPool( objName , transform.position, transform.rotation );
 
 		isLoadProjectileExecuting = false;

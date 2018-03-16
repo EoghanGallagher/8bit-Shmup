@@ -12,6 +12,7 @@ public class PowerUp : MonoBehaviour
 		if( other.gameObject.name == "PlayerShip" )
 		{
 			EventManager.TriggerEvent( "IncrementPowerUpCount", 0 );
+			EventManager.TriggerEvent( "PlaySound" , 3 ); //Tell Sound Manager to play audio 
 			gameObject.SetActive( false );
 		}
 	

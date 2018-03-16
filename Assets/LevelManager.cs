@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class Scene
+public class mScene
 {
 	public int id;
 	public string name;
@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
 		EventManager.StopListening( "UnloadScene" , UnloadScene );
 	}
 
-	public List<Scene> scenes;
+	public List<mScene> scenes;
 
 
 

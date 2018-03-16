@@ -189,6 +189,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		else
 		{
 			weaponSystem.Bullet();
+			
 			EventManager.TriggerEvent( "FireBullet" , 0 );
 		}
 	

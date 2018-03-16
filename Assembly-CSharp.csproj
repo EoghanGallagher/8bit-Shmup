@@ -119,7 +119,8 @@
      <Compile Include="Assets\scripts\Projectiles\Missile.cs" />
      <Compile Include="Assets\scripts\ScoreManager.cs" />
      <Compile Include="Assets\scripts\ShipAnchor.cs" />
-     <Compile Include="Assets\scripts\SoundManager.cs" />
+     <Compile Include="Assets\scripts\SoundManager\Sound.cs" />
+     <Compile Include="Assets\scripts\SoundManager\SoundManager.cs" />
      <Compile Include="Assets\scripts\Spawner.cs" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Tiled - Tmx Import\license.txt" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\changelog.txt" />

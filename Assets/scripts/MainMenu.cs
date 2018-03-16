@@ -31,6 +31,8 @@ public class MainMenu : MonoBehaviour
 	{
 		Debug.Log( "Player Two Button Clicked Ok" );
 
+		
+
 		StartCoroutine( Blink( playerTwo ) );
 	}
 
@@ -39,6 +41,9 @@ public class MainMenu : MonoBehaviour
 	{
 		int x = 0;
 
+		//Trigger Audio here
+		EventManager.TriggerEvent( "PlaySound" , 1 );
+		
 		while( x <= 3 )
 		{
 			button.gameObject.SetActive( false );

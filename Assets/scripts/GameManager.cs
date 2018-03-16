@@ -1,8 +1,6 @@
-﻿
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour 
 {
@@ -20,6 +18,18 @@ public class GameManager : MonoBehaviour
 
 		DontDestroyOnLoad( gameObject );
 
+		
+
+	}
+
+	void OnEnable()
+	{
+		   SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+
+	void OnDisable()
+	{
+		  SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 
 
@@ -60,5 +70,24 @@ public class GameManager : MonoBehaviour
 			isPaused = false;
 		}
 	}
+
+	
+	void OnSceneLoaded( Scene scene, LoadSceneMode mode )
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
+
+		switch( scene.name )
+		{
+			case "level_1":
+
+			//Trigger level 1 music
+			EventManager.TriggerEvent( "PlaySound" , 3 );
+
+			break;
+		}
+    }
+
+	
 	
 }
