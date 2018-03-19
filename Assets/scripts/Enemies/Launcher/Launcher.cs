@@ -71,7 +71,6 @@ public class Launcher : MonoBehaviour , IDestroyable
        
 		if( other.name == "LauncherSpawn(Clone)" )
 		{
-			Debug.Log( "Other " + other.name );
 			spawnCount ++;
 
 			if( isFlipped )

@@ -156,6 +156,10 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 		rigidBody2D.velocity = new Vector2( horiz  , vert ) * speed ;
 
+
+		if( horiz == 0 && vert == 0 )
+			Follow();
+
 		AnimateShipMovement( vert );
 
 		RestrictShipMovement();
@@ -356,5 +360,13 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	{
 		speed += x;
 		//EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
+	}
+
+
+	private Vector3 offset  = new Vector3( 2, 1 , 0 );
+	private float smoothSpeed = 0.125f;
+	private void Follow()
+	{
+	
 	}
 }

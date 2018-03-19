@@ -15,6 +15,8 @@ public class Sound
 
 	public bool loop;
 
+	public bool mute;
+
 	public bool playOnAwake;
 
 	[HideInInspector]

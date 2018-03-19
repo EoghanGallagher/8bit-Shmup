@@ -1,4 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
+using EZCameraShake;
 using UnityEngine;
 
 
@@ -45,6 +46,12 @@ public class GameManager : MonoBehaviour
 		{
 			Pause();
 		}
+
+		if ( Input.GetKeyDown( KeyCode.S ) )
+		{
+			CameraShaker.Instance.ShakeOnce( 4f ,4f , .1f, .1f );
+		}
+
 	}
 
 

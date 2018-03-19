@@ -9,7 +9,8 @@ public class WeaponSystem : MonoBehaviour
 	bulletDelay = 0.25f ,
 	laserDelay = 0.2f,
 	enemyBulletDelay = 2.0f,
-	midBossMissileDelay = 0f;
+	midBossMissileDelay = 0f,
+	laserBoltDelay = 1.5f;
 
 	private bool isLoadProjectileExecuting = false;
 	private bool isAngledBullet = false;
@@ -37,7 +38,7 @@ public class WeaponSystem : MonoBehaviour
 
 	public void Laser()
 	{
-		StartCoroutine( LoadProjectile( "Laser" , laserDelay, 2 ) );
+		StartCoroutine( LoadProjectile( "Laser" , laserDelay, 4 ) );
 	}
 
 	public void EnemyBullet()
@@ -48,6 +49,11 @@ public class WeaponSystem : MonoBehaviour
 	public void MidBossMissile()
 	{
 		StartCoroutine( LoadProjectile( "MidBossMissile" , midBossMissileDelay,2 ) );
+	}
+
+	public void LaserBolt()
+	{
+		StartCoroutine( LoadProjectile( "LaserBolt" , laserBoltDelay,2 ) );
 	}
 	
 
@@ -61,12 +67,12 @@ public class WeaponSystem : MonoBehaviour
 		
 		yield return new WaitForSeconds( delay );
 		
-		
+		//Play projectile sound effect
 		EventManager.TriggerEvent( "PlaySound" , soundIndex ); //Bullet Sound
+		//Spawn projectile from poolmanager
 		PoolManager.instance.SpawnFromPool( objName , transform.position, transform.rotation );
 
 		isLoadProjectileExecuting = false;
-
 
 		yield break;
 	}

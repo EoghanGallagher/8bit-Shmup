@@ -30,7 +30,6 @@ public class Spawner : MonoBehaviour
 		
 		if( other.tag == spawnTrigger )
 		{
-			Debug.Log( "Hit Spawn Collider" );
 			StartCoroutine( "Spawn" );
 		}
 	}

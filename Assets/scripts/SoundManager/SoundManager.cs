@@ -42,6 +42,7 @@ public class SoundManager : MonoBehaviour {
 			s.source.pitch = s.pitch;
 			s.source.loop = s.loop;
 			s.source.playOnAwake = s.loop;
+			s.source.mute = s.mute;
 		}
 
 	}
@@ -49,8 +50,6 @@ public class SoundManager : MonoBehaviour {
 
 	public void Play( int id )
 	{
-		
-		Debug.Log( "Sound id"  + sounds.Length );
 		Sound s = Array.Find( sounds , sound => sound.id == id );
 
 		if( s == null )
