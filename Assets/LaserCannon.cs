@@ -34,11 +34,11 @@ public class LaserCannon : BaseCharacter
 
 	private void OnTriggerEnter2D( Collider2D other )
 	{
-		if( other.name == "Bullet" || other.name == "Laser" )
+		/*if( other.name == "Bullet" || other.name == "Laser" )
 		{
 			//Let laser cannon control know that i am dead
 			EventManager.TriggerEvent( "UpdateDeathCount" , 0 );
-		}
+		}*/
 	}
 
 	public override void Destroy()

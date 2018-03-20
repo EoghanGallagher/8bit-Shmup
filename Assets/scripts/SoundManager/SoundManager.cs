@@ -14,11 +14,13 @@ public class SoundManager : MonoBehaviour {
 	void OnEnable()
 	{
 		EventManager.StartListening( "PlaySound", Play);
+		EventManager.StartListening( "StopSound", Stop );
 	}
 	
 	void OnDisable()
 	{
 		EventManager.StopListening( "PlaySound", Play);
+		EventManager.StopListening( "StopSound", Stop );
 	}
 	void Awake () 
 	{
@@ -56,5 +58,15 @@ public class SoundManager : MonoBehaviour {
 			Debug.Log( "Sound not found..." );
 
 		s.source.Play();
+	}
+
+	public void Stop( int id )
+	{
+		Sound s = Array.Find( sounds , sound => sound.id == id );
+
+		if( s == null )
+			Debug.Log( "Sound not found..." );
+
+		s.source.Stop();
 	}
 }

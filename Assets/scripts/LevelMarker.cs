@@ -25,7 +25,7 @@ public class LevelMarker : MonoBehaviour
 
 			EventManager.TriggerEvent( "UpdateDestination", nextDestination );
 
-			StartCoroutine( CountDown( 10 ) );
+			StartCoroutine( CountDown( 30 ) );
 		
 		}
 	}

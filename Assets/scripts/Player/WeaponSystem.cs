@@ -10,7 +10,8 @@ public class WeaponSystem : MonoBehaviour
 	laserDelay = 0.2f,
 	enemyBulletDelay = 2.0f,
 	midBossMissileDelay = 0f,
-	laserBoltDelay = 1.5f;
+	laserBoltDelay = 1.5f,
+	rockDelay  = 0.02f;
 
 	private bool isLoadProjectileExecuting = false;
 	private bool isAngledBullet = false;
@@ -54,6 +55,12 @@ public class WeaponSystem : MonoBehaviour
 	public void LaserBolt()
 	{
 		StartCoroutine( LoadProjectile( "LaserBolt" , laserBoltDelay,2 ) );
+	}
+
+
+	public void Rock()
+	{
+		StartCoroutine( LoadProjectile( "Rock" , rockDelay, 2 ) );
 	}
 	
 

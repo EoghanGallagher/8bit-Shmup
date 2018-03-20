@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 			case "level_1":
 
 			//Trigger level 1 music
-			EventManager.TriggerEvent( "PlaySound" , 3 );
+			EventManager.TriggerEvent( "PlaySound" , 5 );
 
 			break;
 		}
