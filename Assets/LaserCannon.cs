@@ -10,6 +10,7 @@ public class LaserCannon : BaseCharacter
 	private void OnEnable()
 	{
 		EventManager.StartListening( "FireLaser", FireLaser ); //Listen for Fire laser event
+		
 	}
 
 	private void OnDisable()
@@ -34,11 +35,13 @@ public class LaserCannon : BaseCharacter
 
 	private void OnTriggerEnter2D( Collider2D other )
 	{
-		/*if( other.name == "Bullet" || other.name == "Laser" )
+		if( other.name == "Bullet" || other.name == "Laser" )
 		{
 			//Let laser cannon control know that i am dead
 			EventManager.TriggerEvent( "UpdateDeathCount" , 0 );
-		}*/
+
+			Destroy();
+		}
 	}
 
 	public override void Destroy()
@@ -46,7 +49,7 @@ public class LaserCannon : BaseCharacter
 		EventManager.TriggerEvent( "Score" , ScoreValue );
 			
 		//Trigger death animation
-		animator.SetTrigger( "death" );
+		//animator.SetTrigger( "death" );
 			
 		//Use parents destroy method
 		base.Destroy();

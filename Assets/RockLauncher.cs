@@ -33,7 +33,7 @@ public class RockLauncher : MonoBehaviour {
 		weaponSystem = GetComponent<WeaponSystem>();
 		int count = 0;
 		
-		while( count < 250 )
+		while( count < 225 )
 		{
 			yield return new WaitForSeconds( speed );
 			weaponSystem.Rock();

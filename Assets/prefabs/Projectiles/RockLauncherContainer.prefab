@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863834114449308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2614851, y: -0.005966902, z: 0.0022872984}
+  m_LocalPosition: {x: 0.04, y: -0.005966902, z: 0.0022872984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4121459638367932}
@@ -114,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931408042726724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.221485, y: -2.104033, z: -0.21620515}
+  m_LocalPosition: {x: 115.4, y: -1.21, z: -0.21620515}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4750051817946890}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997880616826966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17851448, y: -0.005966902, z: 0.0022872984}
+  m_LocalPosition: {x: -0.33, y: -0.005966902, z: 0.0022872984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4121459638367932}
@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997481131380518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.041484833, y: -0.005966902, z: 0.0022872984}
+  m_LocalPosition: {x: 0.14, y: -0.005966902, z: 0.0022872984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4121459638367932}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515368722427136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2614851, y: -0.005966902, z: 0.0022872984}
+  m_LocalPosition: {x: 0.51, y: -0.005966902, z: 0.0022872984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4121459638367932}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  delay: 0.75
+  delay: 4
 --- !u!114 &114184198243069536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  delay: 1.5
+  delay: 1
 --- !u!114 &114322582369309522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  delay: 1
+  delay: 2
 --- !u!114 &114380459443050846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  delay: 0
+  delay: 2
 --- !u!114 &114723968569098188
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,6 +23,7 @@ public class Rock : BaseCharacter
 	{
 		StartCoroutine( "LaunchRock" );
 		ScoreValue = 100;
+		isHit = false;
 	}
 
 	// Use this for initialization
