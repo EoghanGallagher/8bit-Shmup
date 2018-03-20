@@ -44,9 +44,13 @@ public class Rock : BaseCharacter
 	private IEnumerator LaunchRock()
 	{
 		isCoRoutineRunning = true;
+	    
 		
 		r2d = GetComponent<Rigidbody2D>();
 		col2D = GetComponent<Collider2D>();
+		animator = GetComponent<Animator>();
+
+		r2d.constraints = RigidbodyConstraints2D.None;
 
 		movementDirection = new Vector2( Random.Range( -1.0f , 1.0f  ) , 1 );
 
@@ -76,10 +80,10 @@ public class Rock : BaseCharacter
 			//Update score with this enemies score value
 			EventManager.TriggerEvent( "Score" , ScoreValue );
 			
-			movementDirection = Vector2.zero;
+			r2d.constraints = RigidbodyConstraints2D.FreezeAll;
 			
 			//Trigger death animation
-			//animator.SetTrigger( "death" );
+			animator.SetTrigger( "death" );
 			
 			//Use parents destroy method
 			base.Destroy();
