@@ -1,19 +1,21 @@
 fileFormatVersion: 2
-guid: e9123a9b95c5741c7b59ed87000f36a4
-timeCreated: 1521645486
+guid: f7d4657539b1944289e4bb7aa918ff91
+timeCreated: 1521656310
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Ducker_0
-    21300002: Ducker_1
-    21300004: Ducker_2
-    21300006: Ducker_3
-    21300008: Ducker_4
-    21300010: Ducker_5
-    21300012: Ducker_6
-    21300014: Ducker_7
-    21300016: Ducker_8
-    21300018: Ducker_9
+    21300000: maoi_0
+    21300002: maoi_1
+    21300004: maoi_2
+    21300006: maoi_3
+    21300008: maoi_4
+    21300010: maoi_5
+    21300012: maoi_6
+    21300014: maoi_7
+    21300016: maoi_8
+    21300018: maoi_9
+    21300020: maoi_10
+    21300022: maoi_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -120,13 +122,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ducker_0
+      name: maoi_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 116
+        width: 327
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: maoi_1
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 115
+        width: 321
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: maoi_2
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 114
+        width: 337
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: maoi_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 260
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,13 +178,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_1
+      name: maoi_4
       rect:
         serializedVersion: 2
-        x: 72
+        x: 269
         y: 0
-        width: 64
-        height: 63
+        width: 263
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,13 +192,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_2
+      name: maoi_5
       rect:
         serializedVersion: 2
-        x: 147
+        x: 543
         y: 0
-        width: 68
-        height: 64
+        width: 273
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,13 +206,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_3
+      name: maoi_6
       rect:
         serializedVersion: 2
-        x: 227
-        y: 0
-        width: 69
-        height: 63
+        x: 1037
+        y: 149
+        width: 107
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,13 +220,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_4
+      name: maoi_7
       rect:
         serializedVersion: 2
-        x: 302
-        y: 0
-        width: 66
-        height: 64
+        x: 1154
+        y: 132
+        width: 99
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,13 +234,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_5
+      name: maoi_8
       rect:
         serializedVersion: 2
-        x: 379
-        y: 0
-        width: 70
-        height: 64
+        x: 1265
+        y: 130
+        width: 140
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,13 +248,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_6
+      name: maoi_9
       rect:
         serializedVersion: 2
-        x: 460
-        y: 0
-        width: 73
-        height: 64
+        x: 1415
+        y: 132
+        width: 147
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,13 +262,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_7
+      name: maoi_10
       rect:
         serializedVersion: 2
-        x: 540
-        y: 0
-        width: 70
-        height: 64
+        x: 1563
+        y: 132
+        width: 97
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,27 +276,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ducker_8
+      name: maoi_11
       rect:
         serializedVersion: 2
-        x: 614
-        y: 10
-        width: 34
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Ducker_9
-      rect:
-        serializedVersion: 2
-        x: 621
-        y: 0
-        width: 27
-        height: 6
+        x: 1557
+        y: 25
+        width: 75
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
