@@ -45,7 +45,7 @@ public class Ducker : BaseCharacter
 					Flip();
 				
 				Fire();
-				
+			
 				StartCoroutine( "Movement" );
 			}
 		}

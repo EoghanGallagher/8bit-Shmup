@@ -11018,6 +11018,46 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: IsUndoEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: m_mapBounds.m_Center.x
+      value: -21.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: m_mapBounds.m_Center.y
+      value: -11.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: m_mapBounds.m_Extent.x
+      value: 23.519999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: m_mapBounds.m_Extent.y
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: m_minGridX
+      value: -188
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: m_maxGridY
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335834687581418, guid: 74c7b1861c9f245e2a3422db2478bf3c,
+        type: 2}
+      propertyPath: m_minGridY
+      value: -194
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74c7b1861c9f245e2a3422db2478bf3c, type: 2}
   m_IsPrefabParent: 0
