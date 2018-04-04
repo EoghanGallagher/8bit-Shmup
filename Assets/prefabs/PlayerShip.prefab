@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4157818564888410}
-  - component: {fileID: 114948615078965004}
+  - component: {fileID: 114422954248112586}
   m_Layer: 0
-  m_Name: Muzzle
+  m_Name: LaserMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4133947699756444}
-  - component: {fileID: 114919272672845306}
+  - component: {fileID: 114718459849822806}
   m_Layer: 0
   m_Name: MissileMuzzle
   m_TagString: Untagged
@@ -51,9 +51,25 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4057297482070052}
-  - component: {fileID: 114326069468387266}
+  - component: {fileID: 114448707152888616}
   m_Layer: 0
-  m_Name: Muzzle
+  m_Name: LaserMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1122895483100770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4736712909125318}
+  - component: {fileID: 114615072913249714}
+  m_Layer: 0
+  m_Name: BulletMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -70,6 +86,7 @@ GameObject:
   - component: {fileID: 212058615704585908}
   - component: {fileID: 95445890548754556}
   - component: {fileID: 114299600118430668}
+  - component: {fileID: 114478119918402776}
   m_Layer: 0
   m_Name: Option
   m_TagString: Untagged
@@ -90,10 +107,28 @@ GameObject:
   - component: {fileID: 95322508131998596}
   - component: {fileID: 60306051550876100}
   - component: {fileID: 114091284509991580}
+  - component: {fileID: 114138531413296344}
+  - component: {fileID: 114557509932893280}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1216758094649262
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4031495178528750}
+  - component: {fileID: 114922442452894880}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -105,14 +140,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4941634048915864}
-  - component: {fileID: 114967340541076028}
+  - component: {fileID: 114648451152880738}
   m_Layer: 0
-  m_Name: Muzzle
+  m_Name: LaserMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1352848265570550
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4119066616317088}
   - component: {fileID: 114932172571514794}
+  - component: {fileID: 114781159953108974}
   m_Layer: 0
   m_Name: AngledMuzzle
   m_TagString: Untagged
@@ -140,13 +176,14 @@ GameObject:
   - component: {fileID: 212882236516463032}
   - component: {fileID: 95061660111554514}
   - component: {fileID: 114446995663989778}
+  - component: {fileID: 114999767189599900}
   m_Layer: 0
   m_Name: Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1501062147911618
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +192,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4166917495623762}
-  - component: {fileID: 114896891384282228}
+  - component: {fileID: 114063833640924208}
   m_Layer: 0
   m_Name: MissileLauncher
   m_TagString: Untagged
@@ -163,6 +200,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1713245179492996
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4008558498026684}
+  - component: {fileID: 114587576415835444}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1941597996390978
 GameObject:
   m_ObjectHideFlags: 1
@@ -171,7 +224,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4919177518839938}
-  - component: {fileID: 114365998174043740}
+  - component: {fileID: 114378242423358040}
   m_Layer: 0
   m_Name: MissileMuzzle
   m_TagString: Untagged
@@ -179,18 +232,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4057297482070052
+--- !u!4 &4008558498026684
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1064598033117166}
+  m_GameObject: {fileID: 1713245179492996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.278, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4942956367735200}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4031495178528750
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216758094649262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.281, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4523801714141474}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4057297482070052
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064598033117166}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.27800012, y: -0.00000011920929, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4942956367735200}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4119066616317088
 Transform:
@@ -203,7 +282,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4314377300802828}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4133947699756444
 Transform:
@@ -224,12 +303,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005871955705290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.281, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.28100038, y: -0.00000011920929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4523801714141474}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4166917495623762
 Transform:
@@ -242,7 +321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4314377300802828}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4314377300802828
 Transform:
@@ -250,10 +329,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1213861939517010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.13, y: 2.34, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.99, y: 0.667, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4736712909125318}
   - {fileID: 4941634048915864}
   - {fileID: 4523801714141474}
   - {fileID: 4942956367735200}
@@ -272,10 +352,24 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4031495178528750}
   - {fileID: 4157818564888410}
   - {fileID: 4919177518839938}
   m_Father: {fileID: 4314377300802828}
-  m_RootOrder: 1
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4736712909125318
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122895483100770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.609, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4314377300802828}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4919177518839938
 Transform:
@@ -288,7 +382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4523801714141474}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4941634048915864
 Transform:
@@ -296,12 +390,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1284544172701966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.609, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6089995, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4314377300802828}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4942956367735200
 Transform:
@@ -313,10 +407,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4057297482070052}
+  - {fileID: 4008558498026684}
   - {fileID: 4133947699756444}
+  - {fileID: 4057297482070052}
   m_Father: {fileID: 4314377300802828}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50178494089976284
 Rigidbody2D:
@@ -455,6 +550,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114063833640924208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501062147911618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: Missile
+  fireDelay: 1
+  soundIndex: 2
 --- !u!114 &114091284509991580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,12 +584,24 @@ MonoBehaviour:
   animator: {fileID: 0}
   shipAnchor: {fileID: 0}
   fireDelta: 0.1
-  playerShipMuzzle: {fileID: 1284544172701966}
+  playerShipMuzzle: {fileID: 1122895483100770}
   MissileLauncher: {fileID: 1501062147911618}
   angledMuzzle: {fileID: 1352848265570550}
   option1: {fileID: 1434123055777646}
   option2: {fileID: 1200063949977196}
-  isAxisRaw: 0
+  isAxisRaw: 1
+--- !u!114 &114138531413296344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213861939517010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fc7e8bc95db4147bb6eeac82f93729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAxisRaw: 1
 --- !u!114 &114299600118430668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,23 +618,7 @@ MonoBehaviour:
   horiz: 0
   vert: 0
   offSetAmt: 1.5
-  muzzle: {fileID: 1064598033117166}
-  missileMuzzle: {fileID: 1008227987498100}
---- !u!114 &114326069468387266
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1064598033117166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missileDelay: 1
-  bulletDelay: 0.25
-  laserDelay: 0.2
---- !u!114 &114365998174043740
+--- !u!114 &114378242423358040
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -521,12 +626,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941597996390978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDelay: 1
-  bulletDelay: 0.25
-  laserDelay: 0.2
+  projectileType: Missile
+  fireDelay: 1
+  soundIndex: 2
+--- !u!114 &114422954248112586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005871955705290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: Bullet
+  fireDelay: 0.25
+  soundIndex: 2
 --- !u!114 &114446995663989778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,23 +662,88 @@ MonoBehaviour:
   horiz: 0
   vert: 0
   offSetAmt: 0.75
-  muzzle: {fileID: 1005871955705290}
-  missileMuzzle: {fileID: 1941597996390978}
---- !u!114 &114896891384282228
+--- !u!114 &114448707152888616
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1501062147911618}
+  m_GameObject: {fileID: 1064598033117166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDelay: 1
-  bulletDelay: 0.25
-  laserDelay: 0.2
---- !u!114 &114919272672845306
+  projectileType: Bullet
+  fireDelay: 0.25
+  soundIndex: 2
+--- !u!114 &114478119918402776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200063949977196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587aef80a5b564ec09d4c511a5f228b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzle: {fileID: 0}
+  missileMuzzle: {fileID: 0}
+  laserMuzzle: {fileID: 0}
+--- !u!114 &114557509932893280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213861939517010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029dfc5839d994dfd9ceffa3ccdf8578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114587576415835444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713245179492996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: Bullet
+  fireDelay: 0.25
+  soundIndex: 2
+--- !u!114 &114615072913249714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122895483100770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: Bullet
+  fireDelay: 0.25
+  soundIndex: 2
+--- !u!114 &114648451152880738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284544172701966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: Laser
+  fireDelay: 0.15
+  soundIndex: 4
+--- !u!114 &114718459849822806
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -567,12 +751,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008227987498100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDelay: 1
-  bulletDelay: 0.25
-  laserDelay: 0.2
+  projectileType: Missile
+  fireDelay: 1
+  soundIndex: 2
+--- !u!114 &114781159953108974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352848265570550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: AngledBullet
+  fireDelay: 0.25
+  soundIndex: 2
+--- !u!114 &114922442452894880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216758094649262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: Bullet
+  fireDelay: 0.25
+  soundIndex: 2
 --- !u!114 &114932172571514794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -587,34 +799,24 @@ MonoBehaviour:
   missileDelay: 1
   bulletDelay: 0.25
   laserDelay: 0.2
---- !u!114 &114948615078965004
+  enemyBulletDelay: 2
+  midBossMissileDelay: 0
+  laserBoltDelay: 1.5
+  rockDelay: 0.02
+--- !u!114 &114999767189599900
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1005871955705290}
+  m_GameObject: {fileID: 1434123055777646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 587aef80a5b564ec09d4c511a5f228b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDelay: 1
-  bulletDelay: 0.25
-  laserDelay: 0.2
---- !u!114 &114967340541076028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284544172701966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missileDelay: 1
-  bulletDelay: 0.25
-  laserDelay: 0.2
+  muzzle: {fileID: 1216758094649262}
+  missileMuzzle: {fileID: 1941597996390978}
+  laserMuzzle: {fileID: 1005871955705290}
 --- !u!212 &212036921573739790
 SpriteRenderer:
   m_ObjectHideFlags: 1

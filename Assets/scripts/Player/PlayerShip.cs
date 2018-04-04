@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+
 [System.Serializable]
  public class Boundary
  {
      public float minX = -3.0f, maxX = 3.0f, minY = -3.0f, maxY = 3.0f;
  }
 
-public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
+
+[RequireComponent( typeof( ShipInput ) )]
+public class PlayerShip : MonoBehaviour , IDestroyable
 {
 
+
+	private ShipInput shipInput;
+
+	private float lastMovement = float.MinValue;
 	public Boundary boundary;
 
 	[SerializeField]
@@ -56,39 +64,39 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 
 	void OnEnable()
 	{
-		EventManager.StartListening( "Lazer" , ToggleLazer );
-		EventManager.StartListening( "Missile" , ToggleMissile );
+		
 		EventManager.StartListening( "Option1" , ToggleOption1 );
 		EventManager.StartListening( "Option2" , ToggleOption2 );
 		EventManager.StartListening( "SpeedUp" , SpeedUp );
-		EventManager.StartListening( "Double" , ToggleDouble );
+		//EventManager.StartListening( "Double" , ToggleDouble );
 	}
 
 	void OnDisable()
 	{
-		EventManager.StopListening( "Lazer" , ToggleLazer );
-		EventManager.StopListening( "Missile" , ToggleMissile );
+		
 		EventManager.StopListening( "Option1" , ToggleOption1);
 		EventManager.StopListening( "Option2" , ToggleOption2);
 		EventManager.StopListening( "SpeedUp" , SpeedUp );
-		EventManager.StopListening( "Double" , ToggleDouble );
+		//EventManager.StopListening( "Double" , ToggleDouble );
 	}
 	// Use this for initialization
 
 	private void Awake()
 	{
 		DontDestroyOnLoad( gameObject );
+
+		shipInput = GetComponent<ShipInput>();
+
+		if( !shipInput )
+		{
+			Debug.Log( "ShipInput component is missing" );
+		}
+
+
 	}
 	private void Start () 
 	{
 
-		observers = new List<IObserver>();
-
-		if( option1.activeSelf )
-			Register( option1.GetComponent<IObserver>() );
-		
-		if( option1.activeSelf )
-			Register( option2.GetComponent<IObserver>()  );
 
 		//Get Attached RigidBody
 		rigidBody2D = GetComponent<Rigidbody2D>();
@@ -100,89 +108,30 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		_transform = transform;
 
 		//Get Attached Weapon System
-		weaponSystem = playerShipMuzzle.GetComponent<WeaponSystem>();
+		//weaponSystem = playerShipMuzzle.GetComponent<WeaponSystem>();
 
-		missileSystem = MissileLauncher.GetComponent<WeaponSystem>();
+		//missileSystem = MissileLauncher.GetComponent<WeaponSystem>();
 
-		angledWeaponSystem = angledMuzzle.GetComponent<WeaponSystem>();
-
-	}
-
-	private void Update()
-	{
-
-		if (Input.GetKeyDown( KeyCode.M ) )
-		{
-			EventManager.TriggerEvent( "Missile" , 0 );
-		}
-
-		if (Input.GetKeyDown( KeyCode.O ) )
-		{
-			EventManager.TriggerEvent( "Option1" , 0 );
-		}
-
-		if (Input.GetKeyDown( KeyCode.I ) )
-		{
-			EventManager.TriggerEvent( "Option2" , 0 );
-		}
-
-		if( Input.GetKeyDown( KeyCode.C ) )
-		{
-			EventManager.TriggerEvent( "ActivatePowerUp" , 0 );
-		}
-
-		if( Input.GetKeyDown( KeyCode.L ) )
-		{
-			EventManager.TriggerEvent( "Lazer" , 1 );
-		}
-
+		//angledWeaponSystem = angledMuzzle.GetComponent<WeaponSystem>();
 
 	}
+
 
 	[SerializeField]
 	private bool isAxisRaw = false;
 	private void FixedUpdate()
 	{
-		if( isAxisRaw )
-		{
-			horiz = Input.GetAxisRaw( "Horizontal" );
-			vert = Input.GetAxisRaw( "Vertical" );
-		}
-		else
-		{
-			horiz = Input.GetAxis( "Horizontal" );
-			vert = Input.GetAxis( "Vertical" );
-		}
-
-		rigidBody2D.velocity = new Vector2( horiz  , vert ) * speed ;
-
-
-		if( horiz == 0 && vert == 0 )
-			Follow();
-
-		AnimateShipMovement( vert );
+		
+		rigidBody2D.velocity = new Vector2( shipInput.Horizontal  , shipInput.Vertical ) * speed ;
 
 		RestrictShipMovement();
 
-		myTime = myTime + Time.deltaTime;
-
-		/*if( Input.GetButton( "Jump" ) && myTime > nextFire )
-		{
-			nextFire = myTime + fireDelta;
-			Fire();
-			nextFire = nextFire - myTime;
-            myTime = 0.0F;
-		}*/
-
-		if( Input.GetButton( "Jump" ) )
-		{
-			Fire();
-		}
+	
 
 	}
 
 
-	public void Fire()
+	/*public void Fire()
 	{
 		
 		if( isLaserActive )
@@ -211,26 +160,10 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			angledWeaponSystem.AngledBullet();
 		}
 	
-	}
+	}*/
 
 
-	//Change Ship Orientation basd on vertical movement
-	private void AnimateShipMovement( float verticalPosition )
-	{
-		if( verticalPosition > 0f )
-		{
-			animator.SetBool( "ascending" , true );
-		}
-		else if( verticalPosition == 0f )
-		{
-			animator.SetBool( "ascending" , false );
-			animator.SetBool( "descending" , false );
-		}
-		else
-		{
-			animator.SetBool( "descending" , true );
-		}
-	}
+	
 
 	//Make sure ship doesnt move beyond screen borders.
 	private void RestrictShipMovement()
@@ -251,7 +184,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 	private IEnumerator PlayerDeath()
 	{
 	
-	if( option1.activeSelf )
+		if( option1.activeSelf )
 		{
 			option1.SetActive( false );
 		}
@@ -276,26 +209,9 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 		}
 	}
 
-	//Observer Pattern
-	public void Register( IObserver observer )
-	{
-		observers.Add( observer );
-		
-	}
+	
 
-	public void UnRegister( IObserver observer )
-	{
-		observers.Remove( observer );
-	}
-
-	public void NotifyObserver()
-	{
-		foreach( IObserver observer in observers )
-		{
-			observer.OnNotify();
-		}
-	}
-
+/* 
 	public void ToggleMissile( int x )
 	{
 		if( MissileLauncher.activeSelf )
@@ -304,7 +220,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			MissileLauncher.SetActive( true );
 
 		//EventManager.TriggerEvent( "ResetPowerUpCount" , 0 );	
-	}
+	}*/
 
 	public void ToggleOption1( int x )
 	{
@@ -322,7 +238,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			option2.SetActive( true );
 	}
 
-	public void ToggleLazer( int x )
+/*	public void ToggleLazer( int x )
 	{
 		if( x == 0 )
 		{
@@ -354,7 +270,7 @@ public class PlayerShip : MonoBehaviour , IDestroyable , IFireable, ISubject
 			
 		
 
-	}
+	}*/
 
 	public void SpeedUp( int x )
 	{

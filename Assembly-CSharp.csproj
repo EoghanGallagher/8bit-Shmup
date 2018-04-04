@@ -126,6 +126,10 @@
      <Compile Include="Assets\scripts\MusicTrigger.cs" />
      <Compile Include="Assets\scripts\Option.cs" />
      <Compile Include="Assets\scripts\Player\PlayerShip.cs" />
+     <Compile Include="Assets\scripts\Player\ShipAnimator.cs" />
+     <Compile Include="Assets\scripts\Player\ShipInput.cs" />
+     <Compile Include="Assets\scripts\Player\Weapon.cs" />
+     <Compile Include="Assets\scripts\Player\WeaponHandler.cs" />
      <Compile Include="Assets\scripts\Player\WeaponSystem.cs" />
      <Compile Include="Assets\scripts\PlayerButton.cs" />
      <Compile Include="Assets\scripts\PoolManager.cs" />

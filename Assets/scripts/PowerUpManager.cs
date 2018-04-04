@@ -206,7 +206,7 @@ public class PowerUpManager : MonoBehaviour
 				if( currentPowerUp.activeCount < currentPowerUp.maxActiveCount )
 				{
 					EventManager.TriggerEvent( "Double" , 0 );
-					EventManager.TriggerEvent( "Lazer" , 1 );
+					EventManager.TriggerEvent( "Laser" , 1 );
 
 					ResetPowerUpCount( 0 );	
 					SetPowerUpToInactive();			

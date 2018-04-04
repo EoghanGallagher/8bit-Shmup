@@ -23,37 +23,17 @@ public class Option : MonoBehaviour
 	private float offSetAmt;
 
 
-	public GameObject muzzle;
-	public GameObject missileMuzzle;
-	
-	private WeaponSystem weaponSystem;
-	private WeaponSystem missileWeaponSystem;
-
-
 	private bool isLaserActive = false;
 
 	void OnEnable()
 	{
-		EventManager.StartListening( "FireBullet" , FireBullet );
-		EventManager.StartListening( "FireMissile" , FireMissile );
-		EventManager.StartListening( "FireLaser" , FireLaser );
-
+		//check what weapon is active
 	}
-
-	void OnDisable()
-	{
-		EventManager.StopListening( "FireBullet" , FireBullet);
-		EventManager.StopListening( "FireMissile" , FireMissile );
-		EventManager.StopListening( "FireLaser" , FireLaser );
-	}
-
 
 	void Start () 
 	{
 		target = GameObject.FindGameObjectWithTag( "Player" ).transform;
-		weaponSystem = muzzle.GetComponent<WeaponSystem>();
-		missileWeaponSystem = missileMuzzle.GetComponent<WeaponSystem>();
-
+		
 	}
 	
 	// Update is called once per frame
@@ -104,26 +84,5 @@ public class Option : MonoBehaviour
 		transform.position = Vector2.MoveTowards( transform.position , desiredPosition, speed * Time.fixedDeltaTime );
 	}
 
-
-	private void FireBullet( int x )
-	{
-		weaponSystem.Bullet();
-	}
-
-	private void FireMissile( int x )
-	{
-		missileWeaponSystem.Missile();
-	}
-
-	private void FireLaser( int x )
-	{
-		weaponSystem.Laser();
-	}
-
-
-		
-		
-
-	
 
 }
