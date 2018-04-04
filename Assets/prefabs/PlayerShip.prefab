@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1008227987498100
 GameObject:
   m_ObjectHideFlags: 1
@@ -42,7 +42,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1064598033117166
 GameObject:
   m_ObjectHideFlags: 1
@@ -58,7 +58,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1122895483100770
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 114091284509991580}
   - component: {fileID: 114138531413296344}
   - component: {fileID: 114557509932893280}
+  - component: {fileID: 114264228613517820}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -132,6 +133,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1232437705362342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4319439179490510}
+  - component: {fileID: 114228555885655238}
+  - component: {fileID: 114728255661887828}
+  m_Layer: 0
+  m_Name: AngledMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1284544172701966
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +168,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1352848265570550
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -183,7 +201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1501062147911618
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +249,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4008558498026684
 Transform:
   m_ObjectHideFlags: 1
@@ -278,11 +296,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1352848265570550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.579, y: 0.395, z: 0}
+  m_LocalPosition: {x: 0.5790007, y: -1.0149999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4314377300802828}
-  m_RootOrder: 5
+  m_Father: {fileID: 4523801714141474}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4133947699756444
 Transform:
@@ -338,9 +356,22 @@ Transform:
   - {fileID: 4523801714141474}
   - {fileID: 4942956367735200}
   - {fileID: 4166917495623762}
-  - {fileID: 4119066616317088}
+  - {fileID: 4319439179490510}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4319439179490510
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232437705362342}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.579, y: 0.395, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4314377300802828}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4523801714141474
 Transform:
@@ -355,6 +386,7 @@ Transform:
   - {fileID: 4031495178528750}
   - {fileID: 4157818564888410}
   - {fileID: 4919177518839938}
+  - {fileID: 4119066616317088}
   m_Father: {fileID: 4314377300802828}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -584,9 +616,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   shipAnchor: {fileID: 0}
   fireDelta: 0.1
-  playerShipMuzzle: {fileID: 1122895483100770}
-  MissileLauncher: {fileID: 1501062147911618}
-  angledMuzzle: {fileID: 1352848265570550}
   option1: {fileID: 1434123055777646}
   option2: {fileID: 1200063949977196}
   isAxisRaw: 1
@@ -602,6 +631,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAxisRaw: 1
+--- !u!114 &114228555885655238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232437705362342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f69bd083ab154873bcac11fe60148a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileDelay: 1
+  bulletDelay: 0.25
+  laserDelay: 0.2
+  enemyBulletDelay: 2
+  midBossMissileDelay: 0
+  laserBoltDelay: 1.5
+  rockDelay: 0.02
+--- !u!114 &114264228613517820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213861939517010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587aef80a5b564ec09d4c511a5f228b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletMuzzle: {fileID: 1122895483100770}
+  missileMuzzle: {fileID: 1501062147911618}
+  laserMuzzle: {fileID: 1284544172701966}
+  angledMuzzle: {fileID: 1232437705362342}
 --- !u!114 &114299600118430668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,9 +749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587aef80a5b564ec09d4c511a5f228b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 0}
-  missileMuzzle: {fileID: 0}
-  laserMuzzle: {fileID: 0}
+  bulletMuzzle: {fileID: 1713245179492996}
+  missileMuzzle: {fileID: 1008227987498100}
+  laserMuzzle: {fileID: 1064598033117166}
+  angledMuzzle: {fileID: 1232437705362342}
 --- !u!114 &114557509932893280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -757,6 +820,20 @@ MonoBehaviour:
   projectileType: Missile
   fireDelay: 1
   soundIndex: 2
+--- !u!114 &114728255661887828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232437705362342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ba67789be31448cbca25d54d5d2ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: AngledBullet
+  fireDelay: 0.25
+  soundIndex: 2
 --- !u!114 &114781159953108974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,9 +891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587aef80a5b564ec09d4c511a5f228b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 1216758094649262}
+  bulletMuzzle: {fileID: 1216758094649262}
   missileMuzzle: {fileID: 1941597996390978}
   laserMuzzle: {fileID: 1005871955705290}
+  angledMuzzle: {fileID: 1352848265570550}
 --- !u!212 &212036921573739790
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -44,10 +44,10 @@ public class PlayerShip : MonoBehaviour , IDestroyable
 
     private float nextFire = 0.2F;
 
-	private WeaponSystem weaponSystem , missileSystem , angledWeaponSystem;
+	//private WeaponSystem weaponSystem , missileSystem , angledWeaponSystem;
 
-	[SerializeField]
-	private GameObject playerShipMuzzle , MissileLauncher , angledMuzzle;
+	//[SerializeField]
+	//private GameObject playerShipMuzzle , MissileLauncher , angledMuzzle;
 
 	
 
